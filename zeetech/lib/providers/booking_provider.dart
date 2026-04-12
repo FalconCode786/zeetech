@@ -68,10 +68,7 @@ class BookingProvider extends ChangeNotifier {
     }
   }
 
-  Future<void> loadMyBookings({
-    String? status,
-    bool refresh = false,
-  }) async {
+  Future<void> loadMyBookings({String? status, bool refresh = false}) async {
     try {
       if (refresh) {
         _currentPage = 1;
@@ -150,5 +147,50 @@ class BookingProvider extends ChangeNotifier {
   void clearCurrentBooking() {
     _currentBooking = null;
     notifyListeners();
+  }
+
+  // --- Additional CRUD Operations ---
+
+  // UPDATE Booking
+  Future<bool> updateBooking(int bookingId, BookingModel updatedBooking) async {
+    try {
+      _setLoading(true);
+      _setError(null);
+      // Call to service if endpoint updated: await _bookingService.updateBooking(updatedBooking);
+      final index = _bookings.indexWhere((b) => b.id == bookingId);
+      if (index != -1) {
+        _bookings[index] = updatedBooking;
+      }
+      if (_currentBooking?.id == bookingId) {
+        _currentBooking = updatedBooking;
+      }
+      _setLoading(false);
+      notifyListeners();
+      return true;
+    } catch (e) {
+      _setLoading(false);
+      _setError(e.toString());
+      return false;
+    }
+  }
+
+  // DELETE Booking
+  Future<bool> deleteBooking(int bookingId) async {
+    try {
+      _setLoading(true);
+      _setError(null);
+      // Call to service if endpoint implemented: await _bookingService.deleteBooking(bookingId);
+      _bookings.removeWhere((b) => b.id == bookingId);
+      if (_currentBooking?.id == bookingId) {
+        _currentBooking = null;
+      }
+      _setLoading(false);
+      notifyListeners();
+      return true;
+    } catch (e) {
+      _setLoading(false);
+      _setError(e.toString());
+      return false;
+    }
   }
 }

@@ -4,16 +4,17 @@ import 'package:intl/intl.dart';
 import '../core/constants/app_colors.dart';
 import '../models/booking_model.dart';
 
-class BookingCard extends StatelessWidget {
+class BookingCard extends StatefulWidget {
   final BookingModel booking;
   final VoidCallback onTap;
 
-  const BookingCard({
-    super.key,
-    required this.booking,
-    required this.onTap,
-  });
+  const BookingCard({super.key, required this.booking, required this.onTap});
 
+  @override
+  State<BookingCard> createState() => _BookingCardState();
+}
+
+class _BookingCardState extends State<BookingCard> {
   Color _getStatusColor(String status) {
     switch (status) {
       case 'pending':
@@ -35,8 +36,9 @@ class BookingCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final booking = widget.booking;
     return GestureDetector(
-      onTap: onTap,
+      onTap: widget.onTap,
       child: Container(
         margin: EdgeInsets.only(bottom: 16.h),
         padding: EdgeInsets.all(16.w),
@@ -67,7 +69,10 @@ class BookingCard extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 12.w,
+                    vertical: 6.h,
+                  ),
                   decoration: BoxDecoration(
                     color: _getStatusColor(booking.status).withOpacity(0.1),
                     borderRadius: BorderRadius.circular(20.r),
@@ -83,13 +88,13 @@ class BookingCard extends StatelessWidget {
                 ),
               ],
             ),
-            
+
             SizedBox(height: 12.h),
-            
+
             const Divider(),
-            
+
             SizedBox(height: 12.h),
-            
+
             // Service Info
             Row(
               children: [
@@ -121,7 +126,9 @@ class BookingCard extends StatelessWidget {
                       ),
                       SizedBox(height: 4.h),
                       Text(
-                        DateFormat('MMM dd, yyyy').format(booking.preferredDate),
+                        DateFormat(
+                          'MMM dd, yyyy',
+                        ).format(booking.preferredDate),
                         style: TextStyle(
                           fontSize: 14.sp,
                           color: AppColors.textSecondary,
@@ -132,17 +139,13 @@ class BookingCard extends StatelessWidget {
                 ),
               ],
             ),
-            
+
             SizedBox(height: 12.h),
-            
+
             // Location
             Row(
               children: [
-                Icon(
-                  Icons.location_on,
-                  size: 16.w,
-                  color: AppColors.textHint,
-                ),
+                Icon(Icons.location_on, size: 16.w, color: AppColors.textHint),
                 SizedBox(width: 4.w),
                 Expanded(
                   child: Text(
@@ -156,9 +159,9 @@ class BookingCard extends StatelessWidget {
                 ),
               ],
             ),
-            
+
             SizedBox(height: 12.h),
-            
+
             // Footer Row
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -181,7 +184,7 @@ class BookingCard extends StatelessWidget {
                     ),
                   ],
                 ),
-                
+
                 // Price
                 Text(
                   'PKR ${booking.totalAmount.toStringAsFixed(0)}',

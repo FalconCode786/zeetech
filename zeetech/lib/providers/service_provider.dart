@@ -88,4 +88,111 @@ class ServiceProvider extends ChangeNotifier {
       return null;
     }
   }
+
+  // --- CRUD Operations added below ---
+
+  // CREATE Category
+  Future<bool> createCategory(ServiceCategory category) async {
+    try {
+      _setLoading(true);
+      // await _serviceService.createCategory(category); // Call to service if implemented
+      _categories.add(category);
+      _setLoading(false);
+      notifyListeners();
+      return true;
+    } catch (e) {
+      _setLoading(false);
+      _setError(e.toString());
+      return false;
+    }
+  }
+
+  // UPDATE Category
+  Future<bool> updateCategory(int id, ServiceCategory updatedCategory) async {
+    try {
+      _setLoading(true);
+      // await _serviceService.updateCategory(id, updatedCategory); // Call to service if implemented
+      final index = _categories.indexWhere((c) => c.id == id);
+      if (index != -1) {
+        _categories[index] = updatedCategory;
+      }
+      _setLoading(false);
+      notifyListeners();
+      return true;
+    } catch (e) {
+      _setLoading(false);
+      _setError(e.toString());
+      return false;
+    }
+  }
+
+  // DELETE Category
+  Future<bool> deleteCategory(int id) async {
+    try {
+      _setLoading(true);
+      // await _serviceService.deleteCategory(id); // Call to service if implemented
+      _categories.removeWhere((c) => c.id == id);
+      _setLoading(false);
+      notifyListeners();
+      return true;
+    } catch (e) {
+      _setLoading(false);
+      _setError(e.toString());
+      return false;
+    }
+  }
+
+  // CREATE SubCategory
+  Future<bool> createSubcategory(ServiceSubCategory subcategory) async {
+    try {
+      _setLoading(true);
+      // await _serviceService.createSubcategory(subcategory); // Call to service if implemented
+      _subcategories.add(subcategory);
+      _setLoading(false);
+      notifyListeners();
+      return true;
+    } catch (e) {
+      _setLoading(false);
+      _setError(e.toString());
+      return false;
+    }
+  }
+
+  // UPDATE SubCategory
+  Future<bool> updateSubcategory(
+    int id,
+    ServiceSubCategory updatedSubcategory,
+  ) async {
+    try {
+      _setLoading(true);
+      // await _serviceService.updateSubcategory(id, updatedSubcategory); // Call to service if implemented
+      final index = _subcategories.indexWhere((s) => s.id == id);
+      if (index != -1) {
+        _subcategories[index] = updatedSubcategory;
+      }
+      _setLoading(false);
+      notifyListeners();
+      return true;
+    } catch (e) {
+      _setLoading(false);
+      _setError(e.toString());
+      return false;
+    }
+  }
+
+  // DELETE SubCategory
+  Future<bool> deleteSubcategory(int id) async {
+    try {
+      _setLoading(true);
+      // await _serviceService.deleteSubcategory(id); // Call to service if implemented
+      _subcategories.removeWhere((s) => s.id == id);
+      _setLoading(false);
+      notifyListeners();
+      return true;
+    } catch (e) {
+      _setLoading(false);
+      _setError(e.toString());
+      return false;
+    }
+  }
 }

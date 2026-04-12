@@ -241,4 +241,22 @@ class AuthProvider extends ChangeNotifier {
       return false;
     }
   }
+
+  // DELETE User Account
+  Future<bool> deleteAccount() async {
+    try {
+      _setLoading(true);
+      _setError(null);
+
+      // await _authService.deleteAccount(_token!); // if endpoint available
+      await logout();
+
+      _setLoading(false);
+      return true;
+    } catch (e) {
+      _setLoading(false);
+      _setError(e.toString());
+      return false;
+    }
+  }
 }

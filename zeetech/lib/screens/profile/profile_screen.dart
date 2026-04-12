@@ -7,9 +7,14 @@ import '../../core/constants/app_colors.dart';
 import '../../core/routes/app_router.dart';
 import '../../providers/auth_provider.dart';
 
-class ProfileScreen extends StatelessWidget {
+class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
 
+  @override
+  State<ProfileScreen> createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     final authProvider = context.watch<AuthProvider>();
@@ -22,9 +27,13 @@ class ProfileScreen extends StatelessWidget {
           slivers: [
             // Profile Header
             SliverToBoxAdapter(
-              child: _buildProfileHeader(user?.fullName ?? 'User', user?.email ?? '', user?.phone ?? ''),
+              child: _buildProfileHeader(
+                user?.fullName ?? 'User',
+                user?.email ?? '',
+                user?.phone ?? '',
+              ),
             ),
-            
+
             // Menu Items
             SliverToBoxAdapter(
               child: Padding(
@@ -51,9 +60,9 @@ class ProfileScreen extends StatelessWidget {
                       title: 'Payment Methods',
                       onTap: () {},
                     ),
-                    
+
                     SizedBox(height: 24.h),
-                    
+
                     _buildSectionTitle('Support'),
                     SizedBox(height: 12.h),
                     _buildMenuItem(
@@ -71,9 +80,9 @@ class ProfileScreen extends StatelessWidget {
                       title: 'Privacy Policy',
                       onTap: () {},
                     ),
-                    
+
                     SizedBox(height: 24.h),
-                    
+
                     _buildSectionTitle('App'),
                     SizedBox(height: 12.h),
                     _buildMenuItem(
@@ -98,9 +107,9 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       onTap: null,
                     ),
-                    
+
                     SizedBox(height: 32.h),
-                    
+
                     // Logout Button
                     SizedBox(
                       width: double.infinity,
@@ -130,9 +139,9 @@ class ProfileScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    
+
                     SizedBox(height: 24.h),
-                    
+
                     // App Version
                     Center(
                       child: Text(
@@ -143,7 +152,7 @@ class ProfileScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    
+
                     SizedBox(height: 16.h),
                   ],
                 ),
@@ -159,9 +168,7 @@ class ProfileScreen extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(24.w),
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: AppColors.primaryGradient,
-        ),
+        gradient: const LinearGradient(colors: AppColors.primaryGradient),
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(24.r),
           bottomRight: Radius.circular(24.r),
@@ -181,17 +188,11 @@ class ProfileScreen extends StatelessWidget {
                 width: 3,
               ),
             ),
-            child: Icon(
-              Icons.person,
-              size: 50.w,
-              color: Colors.white,
-            ),
-          )
-              .animate()
-              .scale(duration: const Duration(milliseconds: 600)),
-          
+            child: Icon(Icons.person, size: 50.w, color: Colors.white),
+          ).animate().scale(duration: const Duration(milliseconds: 600)),
+
           SizedBox(height: 16.h),
-          
+
           // Name
           Text(
             name,
@@ -200,12 +201,10 @@ class ProfileScreen extends StatelessWidget {
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
-          )
-              .animate()
-              .fadeIn(delay: const Duration(milliseconds: 100)),
-          
+          ).animate().fadeIn(delay: const Duration(milliseconds: 100)),
+
           SizedBox(height: 4.h),
-          
+
           // Email
           Text(
             email,
@@ -213,12 +212,10 @@ class ProfileScreen extends StatelessWidget {
               fontSize: 14.sp,
               color: Colors.white.withOpacity(0.8),
             ),
-          )
-              .animate()
-              .fadeIn(delay: const Duration(milliseconds: 200)),
-          
+          ).animate().fadeIn(delay: const Duration(milliseconds: 200)),
+
           SizedBox(height: 4.h),
-          
+
           // Phone
           Text(
             phone,
@@ -226,9 +223,7 @@ class ProfileScreen extends StatelessWidget {
               fontSize: 14.sp,
               color: Colors.white.withOpacity(0.8),
             ),
-          )
-              .animate()
-              .fadeIn(delay: const Duration(milliseconds: 300)),
+          ).animate().fadeIn(delay: const Duration(milliseconds: 300)),
         ],
       ),
     );
@@ -271,11 +266,7 @@ class ProfileScreen extends StatelessWidget {
             color: AppColors.primary.withOpacity(0.1),
             borderRadius: BorderRadius.circular(8.r),
           ),
-          child: Icon(
-            icon,
-            color: AppColors.primary,
-            size: 20.w,
-          ),
+          child: Icon(icon, color: AppColors.primary, size: 20.w),
         ),
         title: Text(
           title,
@@ -285,11 +276,13 @@ class ProfileScreen extends StatelessWidget {
             color: AppColors.textPrimary,
           ),
         ),
-        trailing: trailing ?? Icon(
-          Icons.arrow_forward_ios,
-          color: AppColors.textHint,
-          size: 16.w,
-        ),
+        trailing:
+            trailing ??
+            Icon(
+              Icons.arrow_forward_ios,
+              color: AppColors.textHint,
+              size: 16.w,
+            ),
         onTap: onTap,
       ),
     );
@@ -309,20 +302,14 @@ class ProfileScreen extends StatelessWidget {
         ),
         content: Text(
           'Are you sure you want to logout?',
-          style: TextStyle(
-            fontSize: 16.sp,
-            color: AppColors.textSecondary,
-          ),
+          style: TextStyle(fontSize: 16.sp, color: AppColors.textSecondary),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
             child: Text(
               'Cancel',
-              style: TextStyle(
-                color: AppColors.textSecondary,
-                fontSize: 14.sp,
-              ),
+              style: TextStyle(color: AppColors.textSecondary, fontSize: 14.sp),
             ),
           ),
           ElevatedButton(
@@ -331,15 +318,10 @@ class ProfileScreen extends StatelessWidget {
               authProvider.logout();
               context.go(AppRoutes.login);
             },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.error,
-            ),
+            style: ElevatedButton.styleFrom(backgroundColor: AppColors.error),
             child: Text(
               'Logout',
-              style: TextStyle(
-                fontSize: 14.sp,
-                fontWeight: FontWeight.w600,
-              ),
+              style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w600),
             ),
           ),
         ],

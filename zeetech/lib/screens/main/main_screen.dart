@@ -71,7 +71,7 @@ class _MainScreenState extends State<MainScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: List.generate(
                 _navItems.length,
-                (index) => _buildNavItem(index),
+                (index) => Expanded(child: _buildNavItem(index)),
               ),
             ),
           ),
@@ -90,7 +90,9 @@ class _MainScreenState extends State<MainScreen> {
         duration: const Duration(milliseconds: 200),
         padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
         decoration: BoxDecoration(
-          color: isSelected ? AppColors.primary.withOpacity(0.1) : Colors.transparent,
+          color: isSelected
+              ? AppColors.primary.withOpacity(0.1)
+              : Colors.transparent,
           borderRadius: BorderRadius.circular(12.r),
         ),
         child: Column(
@@ -108,6 +110,8 @@ class _MainScreenState extends State<MainScreen> {
             SizedBox(height: 4.h),
             Text(
               item.label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: TextStyle(
                 color: isSelected ? AppColors.primary : AppColors.textHint,
                 fontSize: 12.sp,

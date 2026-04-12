@@ -55,24 +55,25 @@ class CustomTextField extends StatelessWidget {
           enabled: enabled,
           onChanged: onChanged,
           style: TextStyle(
+            fontFamily: 'Poppins',
             fontSize: 16.sp,
             color: enabled ? AppColors.textPrimary : AppColors.textHint,
           ),
           decoration: InputDecoration(
             hintText: hint,
             hintStyle: TextStyle(
+              fontFamily: 'Poppins',
               color: AppColors.textHint,
               fontSize: 14.sp,
             ),
             prefixIcon: prefixIcon != null
-                ? Padding(
-                    padding: EdgeInsets.all(12.w),
-                    child: prefixIcon,
-                  )
+                ? Padding(padding: EdgeInsets.all(12.w), child: prefixIcon)
                 : null,
             suffixIcon: suffixIcon,
             filled: true,
-            fillColor: enabled ? AppColors.inputBackground : AppColors.inputBackground.withOpacity(0.5),
+            fillColor: enabled
+                ? AppColors.inputBackground
+                : AppColors.inputBackground.withOpacity(0.5),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12.r),
               borderSide: BorderSide.none,
