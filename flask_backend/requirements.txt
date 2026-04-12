@@ -1,0 +1,10 @@
+Flask
+Flask-Login
+Flask-CORS
+pymongo
+python-dotenv
+werkzeug
+stripe
+Flask-Mail
+Pillow
+requests

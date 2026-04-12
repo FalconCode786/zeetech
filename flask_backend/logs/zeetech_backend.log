@@ -1,0 +1,1030 @@
+[2026-04-11 15:00:09,527] INFO in __init__: Logging configured for development environment
+[2026-04-11 15:00:09,611] INFO in __init__: MongoDB connection successful
+[2026-04-11 15:00:12,872] INFO in __init__: Logging configured for development environment
+[2026-04-11 15:00:12,890] INFO in __init__: MongoDB connection successful
+[2026-04-11 16:07:32,676] INFO in __init__: Logging configured for development environment
+[2026-04-11 16:07:32,955] INFO in __init__: MongoDB connection successful
+[2026-04-11 16:07:40,123] INFO in __init__: Logging configured for development environment
+[2026-04-11 16:07:40,192] INFO in __init__: MongoDB connection successful
+[2026-04-11 16:25:42,308] INFO in __init__: Logging configured for development environment
+[2026-04-11 16:25:42,415] INFO in __init__: MongoDB connection successful
+[2026-04-11 16:25:46,922] INFO in __init__: Logging configured for development environment
+[2026-04-11 16:25:47,000] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:30:18,762] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:30:18,931] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:30:23,061] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:30:23,088] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:35,325] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:35,638] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:36,583] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:36,583] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:36,596] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:36,596] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:36,922] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:36,922] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:36,922] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:36,931] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:36,931] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:36,931] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:37,403] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:37,403] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:37,403] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:37,403] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:37,413] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:37,413] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:37,413] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:37,413] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:38,379] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:38,379] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:38,379] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:38,379] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:38,379] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:38,422] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:38,422] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:38,422] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:38,422] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:38,422] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:38,689] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:38,689] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:38,689] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:38,689] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:38,689] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:38,689] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:38,702] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:38,702] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:38,702] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:38,702] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:38,702] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:38,702] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:38,915] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:38,915] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:38,915] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:38,915] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:38,915] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:38,915] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:38,915] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:38,925] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:38,925] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:38,925] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:38,925] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:38,925] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:38,925] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:38,925] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:39,707] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:39,707] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:39,707] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:39,707] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:39,707] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:39,707] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:39,707] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:39,707] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:39,720] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:39,720] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:39,720] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:39,720] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:39,720] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:39,720] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:39,720] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:39,720] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:40,416] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:40,416] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:40,416] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:40,416] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:40,416] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:40,416] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:40,416] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:40,416] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:40,416] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:40,429] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:40,429] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:40,429] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:40,429] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:40,429] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:40,429] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:40,429] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:40,429] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:40,429] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:41,759] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:41,759] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:41,759] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:41,759] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:41,759] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:41,759] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:41,759] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:41,759] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:41,759] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:41,759] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:41,789] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:41,789] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:41,789] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:41,789] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:41,789] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:41,789] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:41,789] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:41,789] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:41,789] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:41,789] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:42,645] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:42,645] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:42,645] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:42,645] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:42,645] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:42,645] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:42,645] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:42,645] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:42,645] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:42,645] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:42,645] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:42,658] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:42,658] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:42,658] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:42,658] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:42,658] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:42,658] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:42,658] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:42,658] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:42,658] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:42,658] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:42,658] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:43,519] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:43,519] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:43,519] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:43,519] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:43,519] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:43,519] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:43,519] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:43,519] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:43,519] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:43,519] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:43,519] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:43,519] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:43,535] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:43,535] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:43,535] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:43,535] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:43,535] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:43,535] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:43,535] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:43,535] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:43,535] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:43,535] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:43,535] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:43,535] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,264] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,264] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,264] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,264] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,264] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,264] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,264] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,264] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,264] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,264] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,264] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,264] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,264] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,275] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,275] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,275] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,275] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,275] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,275] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,275] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,275] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,275] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,275] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,275] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,275] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,275] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,960] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,960] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,960] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,960] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,960] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,960] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,960] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,960] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,960] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,960] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,960] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,960] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,960] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,960] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:44,972] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,972] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,972] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,972] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,972] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,972] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,972] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,972] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,972] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,972] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,972] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,972] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,972] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:44,972] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:45,646] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:45,646] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:45,646] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:45,646] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:45,646] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:45,646] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:45,646] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:45,646] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:45,646] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:45,646] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:45,646] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:45,646] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:45,646] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:45,646] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:45,646] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:45:45,657] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:45,657] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:45,657] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:45,657] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:45,657] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:45,657] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:45,657] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:45,657] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:45,657] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:45,657] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:45,657] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:45,657] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:45,657] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:45,657] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:45:45,657] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:55:24,478] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:55:24,901] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:55:43,168] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:55:43,221] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:56:49,569] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:56:49,628] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:58:28,725] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:58:28,766] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:17,544] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:17,628] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:38,666] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:38,740] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:39,980] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:39,980] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:39,998] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:39,998] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:40,482] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:40,482] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:40,482] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:40,516] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:40,516] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:40,516] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:41,585] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:41,585] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:41,585] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:41,585] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:41,605] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:41,605] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:41,605] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:41,605] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:42,874] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:42,874] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:42,874] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:42,874] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:42,874] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:42,898] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:42,898] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:42,898] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:42,898] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:42,898] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:43,397] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:43,397] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:43,397] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:43,397] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:43,397] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:43,397] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:43,431] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:43,431] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:43,431] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:43,431] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:43,431] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:43,431] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:43,918] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:43,918] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:43,918] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:43,918] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:43,918] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:43,918] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:43,918] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:43,944] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:43,944] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:43,944] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:43,944] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:43,944] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:43,944] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:43,944] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:45,227] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:45,227] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:45,227] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:45,227] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:45,227] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:45,227] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:45,227] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:45,227] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:45,261] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:45,261] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:45,261] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:45,261] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:45,261] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:45,261] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:45,261] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:45,261] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:46,544] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:46,544] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:46,544] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:46,544] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:46,544] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:46,544] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:46,544] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:46,544] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:46,544] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:46,571] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:46,571] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:46,571] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:46,571] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:46,571] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:46,571] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:46,571] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:46,571] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:46,571] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:49,135] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:49,135] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:49,135] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:49,135] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:49,135] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:49,135] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:49,135] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:49,135] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:49,135] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:49,135] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:49,162] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:49,162] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:49,162] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:49,162] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:49,162] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:49,162] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:49,162] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:49,162] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:49,162] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:49,162] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:50,639] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:50,639] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:50,639] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:50,639] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:50,639] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:50,639] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:50,639] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:50,639] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:50,639] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:50,639] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:50,639] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:50,662] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:50,662] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:50,662] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:50,662] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:50,662] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:50,662] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:50,662] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:50,662] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:50,662] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:50,662] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:50,662] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:51,926] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:51,926] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:51,926] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:51,926] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:51,926] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:51,926] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:51,926] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:51,926] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:51,926] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:51,926] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:51,926] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:51,926] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:51,951] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:51,951] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:51,951] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:51,951] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:51,951] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:51,951] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:51,951] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:51,951] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:51,951] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:51,951] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:51,951] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:51,951] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:53,378] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:53,378] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:53,378] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:53,378] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:53,378] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:53,378] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:53,378] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:53,378] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:53,378] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:53,378] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:53,378] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:53,378] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:53,378] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:53,401] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:53,401] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:53,401] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:53,401] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:53,401] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:53,401] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:53,401] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:53,401] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:53,401] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:53,401] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:53,401] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:53,401] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:53,401] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:54,793] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:54,793] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:54,793] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:54,793] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:54,793] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:54,793] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:54,793] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:54,793] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:54,793] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:54,793] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:54,793] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:54,793] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:54,793] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:54,793] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:54,809] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:54,809] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:54,809] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:54,809] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:54,809] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:54,809] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:54,809] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:54,809] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:54,809] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:54,809] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:54,809] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:54,809] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:54,809] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:54,809] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:56,031] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:56,031] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:56,031] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:56,031] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:56,031] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:56,031] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:56,031] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:56,031] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:56,031] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:56,031] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:56,031] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:56,031] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:56,031] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:56,031] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:56,031] INFO in __init__: Logging configured for development environment
+[2026-04-11 18:59:56,057] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:56,057] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:56,057] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:56,057] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:56,057] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:56,057] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:56,057] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:56,057] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:56,057] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:56,057] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:56,057] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:56,057] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:56,057] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:56,057] INFO in __init__: MongoDB connection successful
+[2026-04-11 18:59:56,057] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:00:53,412] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:00:53,475] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:08:27,813] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:08:27,841] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:08:55,052] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:08:55,081] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:09:32,778] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:09:32,800] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:10:01,227] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:10:01,278] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:10:25,616] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:10:25,651] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:10:46,488] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:10:46,512] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:10:59,686] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:10:59,724] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:00,253] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:00,253] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:00,272] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:00,272] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:11,373] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:11,373] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:11,373] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:11,445] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:11,445] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:11,445] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:12,051] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:12,051] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:12,051] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:12,051] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:12,069] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:12,069] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:12,069] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:12,069] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:13,127] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:13,127] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:13,127] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:13,127] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:13,127] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:13,135] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:13,135] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:13,135] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:13,135] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:13,135] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:13,369] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:13,369] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:13,369] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:13,369] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:13,369] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:13,369] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:13,380] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:13,380] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:13,380] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:13,380] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:13,380] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:13,380] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:13,602] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:13,602] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:13,602] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:13,602] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:13,602] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:13,602] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:13,602] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:13,613] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:13,613] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:13,613] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:13,613] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:13,613] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:13,613] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:13,613] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:14,342] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:14,342] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:14,342] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:14,342] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:14,342] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:14,342] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:14,342] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:14,342] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:14,362] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:14,362] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:14,362] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:14,362] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:14,362] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:14,362] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:14,362] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:14,362] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:26,468] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:26,468] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:26,468] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:26,468] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:26,468] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:26,468] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:26,468] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:26,468] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:26,468] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:26,489] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:26,489] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:26,489] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:26,489] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:26,489] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:26,489] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:26,489] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:26,489] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:26,489] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:27,515] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:27,515] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:27,515] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:27,515] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:27,515] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:27,515] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:27,515] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:27,515] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:27,515] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:27,515] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:27,528] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:27,528] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:27,528] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:27,528] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:27,528] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:27,528] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:27,528] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:27,528] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:27,528] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:27,528] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:28,629] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:28,629] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:28,629] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:28,629] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:28,629] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:28,629] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:28,629] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:28,629] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:28,629] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:28,629] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:28,629] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:28,640] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:28,640] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:28,640] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:28,640] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:28,640] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:28,640] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:28,640] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:28,640] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:28,640] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:28,640] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:28,640] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:29,399] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:29,399] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:29,399] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:29,399] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:29,399] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:29,399] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:29,399] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:29,399] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:29,399] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:29,399] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:29,399] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:29,399] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:29,409] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:29,409] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:29,409] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:29,409] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:29,409] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:29,409] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:29,409] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:29,409] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:29,409] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:29,409] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:29,409] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:29,409] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:30,869] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:30,869] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:30,869] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:30,869] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:30,869] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:30,869] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:30,869] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:30,869] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:30,869] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:30,869] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:30,869] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:30,869] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:30,869] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:30,888] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:30,888] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:30,888] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:30,888] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:30,888] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:30,888] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:30,888] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:30,888] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:30,888] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:30,888] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:30,888] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:30,888] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:30,888] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:31,717] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:31,717] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:31,717] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:31,717] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:31,717] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:31,717] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:31,717] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:31,717] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:31,717] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:31,717] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:31,717] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:31,717] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:31,717] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:31,717] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:31,729] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:31,729] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:31,729] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:31,729] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:31,729] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:31,729] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:31,729] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:31,729] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:31,729] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:31,729] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:31,729] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:31,729] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:31,729] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:31,729] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:32,442] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:32,442] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:32,442] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:32,442] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:32,442] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:32,442] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:32,442] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:32,442] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:32,442] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:32,442] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:32,442] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:32,442] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:32,442] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:32,442] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:32,442] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:11:32,454] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:32,454] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:32,454] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:32,454] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:32,454] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:32,454] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:32,454] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:32,454] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:32,454] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:32,454] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:32,454] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:32,454] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:32,454] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:32,454] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:11:32,454] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:12,140] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:12,166] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:12,913] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:12,913] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:12,927] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:12,927] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:13,224] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:13,224] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:13,224] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:13,238] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:13,238] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:13,238] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:13,784] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:13,784] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:13,784] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:13,784] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:13,795] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:13,795] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:13,795] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:13,795] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:14,628] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:14,628] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:14,628] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:14,628] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:14,628] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:14,642] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:14,642] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:14,642] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:14,642] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:14,642] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:14,889] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:14,889] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:14,889] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:14,889] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:14,889] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:14,889] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:14,902] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:14,902] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:14,902] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:14,902] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:14,902] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:14,902] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:15,140] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:15,140] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:15,140] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:15,140] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:15,140] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:15,140] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:15,140] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:15,159] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:15,159] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:15,159] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:15,159] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:15,159] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:15,159] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:15,159] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:16,218] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:16,218] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:16,218] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:16,218] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:16,218] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:16,218] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:16,218] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:16,218] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:16,239] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:16,239] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:16,239] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:16,239] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:16,239] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:16,239] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:16,239] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:16,239] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:17,270] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:17,270] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:17,270] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:17,270] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:17,270] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:17,270] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:17,270] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:17,270] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:17,270] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:17,292] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:17,292] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:17,292] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:17,292] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:17,292] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:17,292] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:17,292] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:17,292] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:17,292] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:18,131] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:18,131] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:18,131] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:18,131] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:18,131] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:18,131] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:18,131] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:18,131] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:18,131] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:18,131] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:18,143] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:18,143] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:18,143] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:18,143] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:18,143] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:18,143] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:18,143] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:18,143] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:18,143] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:18,143] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:19,058] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:19,058] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:19,058] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:19,058] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:19,058] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:19,058] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:19,058] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:19,058] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:19,058] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:19,058] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:19,058] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:19,070] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:19,070] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:19,070] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:19,070] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:19,070] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:19,070] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:19,070] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:19,070] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:19,070] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:19,070] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:19,070] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:29,224] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:29,224] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:29,224] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:29,224] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:29,224] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:29,224] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:29,224] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:29,224] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:29,224] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:29,224] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:29,224] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:29,224] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:29,271] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:29,271] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:29,271] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:29,271] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:29,271] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:29,271] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:29,271] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:29,271] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:29,271] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:29,271] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:29,271] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:29,271] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:41,124] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:41,124] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:41,124] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:41,124] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:41,124] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:41,124] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:41,124] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:41,124] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:41,124] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:41,124] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:41,124] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:41,124] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:41,124] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:41,189] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:41,189] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:41,189] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:41,189] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:41,189] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:41,189] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:41,189] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:41,189] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:41,189] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:41,189] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:41,189] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:41,189] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:41,189] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,072] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,072] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,072] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,072] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,072] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,072] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,072] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,072] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,072] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,072] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,072] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,072] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,072] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,072] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,083] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,083] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,083] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,083] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,083] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,083] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,083] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,083] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,083] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,083] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,083] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,083] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,083] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,083] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,777] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,777] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,777] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,777] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,777] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,777] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,777] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,777] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,777] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,777] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,777] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,777] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,777] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,777] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,777] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:13:42,788] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,788] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,788] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,788] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,788] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,788] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,788] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,788] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,788] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,788] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,788] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,788] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,788] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,788] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:13:42,788] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:14:41,700] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:14:41,744] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:15:44,777] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:15:44,793] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:15:59,129] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:15:59,148] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:25:30,025] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:25:30,058] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:25:33,284] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:25:33,319] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:30:36,526] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:30:36,542] INFO in __init__: MongoDB connection successful
+[2026-04-11 19:30:38,738] INFO in __init__: Logging configured for development environment
+[2026-04-11 19:30:38,759] INFO in __init__: MongoDB connection successful
+[2026-04-11 23:14:36,804] INFO in __init__: Logging configured for development environment
+[2026-04-11 23:14:36,963] INFO in __init__: MongoDB connection successful
+[2026-04-11 23:14:50,648] INFO in __init__: Logging configured for development environment
+[2026-04-11 23:14:50,681] INFO in __init__: MongoDB connection successful
+[2026-04-12 00:40:18,404] INFO in __init__: Logging configured for development environment
+[2026-04-12 00:40:18,627] INFO in __init__: MongoDB connection successful
+[2026-04-12 00:40:53,236] INFO in __init__: Logging configured for development environment
+[2026-04-12 00:40:53,470] INFO in __init__: MongoDB connection successful
+[2026-04-12 09:32:01,493] INFO in __init__: Logging configured for development environment
+[2026-04-12 09:32:01,712] INFO in __init__: MongoDB connection successful
+[2026-04-12 09:32:05,278] INFO in __init__: Logging configured for development environment
+[2026-04-12 09:32:05,316] INFO in __init__: MongoDB connection successful
+[2026-04-12 12:02:27,420] INFO in __init__: Logging configured for development environment
+[2026-04-12 12:02:27,832] INFO in __init__: MongoDB connection successful
+[2026-04-12 12:02:36,142] INFO in __init__: Logging configured for development environment
+[2026-04-12 12:02:36,195] INFO in __init__: MongoDB connection successful
