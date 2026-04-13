@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import '../../core/constants/app_colors.dart';
+import '../../providers/auth_provider.dart';
 
 class MainScreen extends StatefulWidget {
   final Widget child;
@@ -15,7 +17,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
 
-  final List<_NavItem> _navItems = [
+  final List<_NavItem> _customerNavItems = [
     _NavItem(
       icon: Icons.home_outlined,
       activeIcon: Icons.home,
@@ -42,15 +44,46 @@ class _MainScreenState extends State<MainScreen> {
     ),
   ];
 
-  void _onItemTapped(int index) {
+  final List<_NavItem> _providerNavItems = [
+    _NavItem(
+      icon: Icons.dashboard_outlined,
+      activeIcon: Icons.dashboard,
+      label: 'Dashboard',
+      route: '/provider',
+    ),
+    _NavItem(
+      icon: Icons.build_outlined,
+      activeIcon: Icons.build,
+      label: 'Services',
+      route: '/provider/services',
+    ),
+    _NavItem(
+      icon: Icons.assignment_outlined,
+      activeIcon: Icons.assignment,
+      label: 'Bookings',
+      route: '/provider/bookings',
+    ),
+    _NavItem(
+      icon: Icons.person_outline,
+      activeIcon: Icons.person,
+      label: 'Profile',
+      route: '/profile',
+    ),
+  ];
+
+  void _onItemTapped(int index, List<_NavItem> navItems) {
     setState(() {
       _currentIndex = index;
     });
-    context.go(_navItems[index].route);
+    context.go(navItems[index].route);
   }
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = context.watch<AuthProvider>();
+    final isProvider = authProvider.user?.role == 'provider';
+    final navItems = isProvider ? _providerNavItems : _customerNavItems;
+
     return Scaffold(
       body: widget.child,
       bottomNavigationBar: Container(
@@ -70,8 +103,8 @@ class _MainScreenState extends State<MainScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: List.generate(
-                _navItems.length,
-                (index) => Expanded(child: _buildNavItem(index)),
+                navItems.length,
+                (index) => Expanded(child: _buildNavItem(index, navItems)),
               ),
             ),
           ),
@@ -80,12 +113,12 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
-  Widget _buildNavItem(int index) {
+  Widget _buildNavItem(int index, List<_NavItem> navItems) {
     final isSelected = _currentIndex == index;
-    final item = _navItems[index];
+    final item = navItems[index];
 
     return GestureDetector(
-      onTap: () => _onItemTapped(index),
+      onTap: () => _onItemTapped(index, navItems),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),

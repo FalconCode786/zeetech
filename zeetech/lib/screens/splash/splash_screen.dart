@@ -14,7 +14,8 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen>
+    with TickerProviderStateMixin {
   late AnimationController _logoController;
   late AnimationController _textController;
   late Animation<double> _logoScaleAnimation;
@@ -41,10 +42,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     );
 
     _logoScaleAnimation = Tween<double>(begin: 0.5, end: 1.0).animate(
-      CurvedAnimation(
-        parent: _logoController,
-        curve: Curves.elasticOut,
-      ),
+      CurvedAnimation(parent: _logoController, curve: Curves.elasticOut),
     );
 
     _logoOpacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
@@ -55,18 +53,13 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     );
 
     _textSlideAnimation = Tween<double>(begin: 50.0, end: 0.0).animate(
-      CurvedAnimation(
-        parent: _textController,
-        curve: Curves.easeOutCubic,
-      ),
+      CurvedAnimation(parent: _textController, curve: Curves.easeOutCubic),
     );
 
-    _textOpacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(
-        parent: _textController,
-        curve: Curves.easeIn,
-      ),
-    );
+    _textOpacityAnimation = Tween<double>(
+      begin: 0.0,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _textController, curve: Curves.easeIn));
 
     _logoController.forward().then((_) {
       _textController.forward();
@@ -119,11 +112,11 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                   child: Transform.scale(
                     scale: _logoScaleAnimation.value,
                     child: Container(
-                      width: 150.w,
-                      height: 150.w,
+                      width: 120.w,
+                      height: 120.w,
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(30.r),
+                        borderRadius: BorderRadius.circular(24.r),
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black.withOpacity(0.2),
@@ -135,7 +128,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                       child: Center(
                         child: Icon(
                           Icons.home_repair_service,
-                          size: 80.w,
+                          size: 60.w,
                           color: AppColors.primary,
                         ),
                       ),
@@ -144,7 +137,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                 );
               },
             ),
-            SizedBox(height: 40.h),
+            SizedBox(height: 20.h),
             // Text Animation
             AnimatedBuilder(
               animation: _textController,
@@ -179,16 +172,18 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                 );
               },
             ),
-            SizedBox(height: 60.h),
+            SizedBox(height: 30.h),
             // Loading Indicator
             SizedBox(
-              width: 40.w,
-              height: 40.w,
-              child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.white.withOpacity(0.8)),
-                strokeWidth: 3,
-              ),
-            )
+                  width: 40.w,
+                  height: 40.w,
+                  child: CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      Colors.white.withOpacity(0.8),
+                    ),
+                    strokeWidth: 3,
+                  ),
+                )
                 .animate(onPlay: (controller) => controller.repeat())
                 .rotate(duration: const Duration(seconds: 1)),
           ],

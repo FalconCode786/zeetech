@@ -42,7 +42,6 @@ class ZeetechApp extends StatelessWidget {
                 secondary: AppColors.secondary,
                 background: AppColors.background,
               ),
-              fontFamily: 'GoodTimes',
               useMaterial3: true,
               appBarTheme: AppBarTheme(
                 backgroundColor: AppColors.primary,

@@ -1,12 +1,16 @@
 /// Production-ready validation utilities
 class ValidationUtils {
   // Email regex pattern - RFC 5322 simplified
-  static const String _emailPattern = r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
+  static const String _emailPattern =
+      r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$";
 
-  // Phone regex - supports Pakistani format and international
-  static const String _phonePattern = r'^(?:\+92|0)?3\d{9}$|^(?:\+\d{1,3}[-.]?)?\d{7,14}$';
+  // Phone regex - supports Pakistani format and international (commented for MVP)
+  // ignore: unused_field
+  static const String _phonePattern =
+      r'^(?:\+92|0)?3\d{9}$|^(?:\+\d{1,3}[-.]?)?\d{7,14}$';
 
-  // Password requirements: min 8 chars, at least one uppercase, lowercase, digit, special char
+  // Password requirements: min 8 chars, at least one uppercase, lowercase, digit, special char (commented for MVP)
+  // ignore: unused_field
   static const String _passwordPattern =
       r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$';
 
@@ -183,7 +187,10 @@ class ValidationUtils {
   }
 
   /// Generic password confirmation validator
-  static String? validatePasswordMatch(String? password, String? confirmPassword) {
+  static String? validatePasswordMatch(
+    String? password,
+    String? confirmPassword,
+  ) {
     if (password == null || confirmPassword == null) {
       return 'Both passwords are required';
     }
@@ -201,7 +208,7 @@ class ValidationUtils {
     input = input.replaceAll(RegExp(r'<[^>]*>'), '');
 
     // Remove SQL injection attempts
-     input = input.replaceAll(RegExp(r'''[;'"]'''), '');
+    input = input.replaceAll(RegExp(r'''[;'"]'''), '');
 
     // Trim whitespace
     input = input.trim();

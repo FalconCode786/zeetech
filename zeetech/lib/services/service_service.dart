@@ -16,7 +16,9 @@ class ServiceService {
   }
 
   Future<List<ServiceSubCategory>> getSubcategories(int categoryId) async {
-    final response = await _apiService.get('/services/category/$categoryId/subcategories');
+    final response = await _apiService.get(
+      '/services/category/$categoryId/subcategories',
+    );
     final List<dynamic> data = response.data;
     return data.map((json) => ServiceSubCategory.fromJson(json)).toList();
   }

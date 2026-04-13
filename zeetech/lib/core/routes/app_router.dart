@@ -17,6 +17,9 @@ import '../../screens/booking/booking_detail_screen.dart';
 import '../../screens/profile/profile_screen.dart';
 import '../../screens/profile/edit_profile_screen.dart';
 import '../../screens/main/main_screen.dart';
+import '../../screens/provider/provider_dashboard_screen.dart';
+import '../../screens/provider/provider_services_screen.dart';
+import '../../screens/provider/provider_bookings_screen.dart';
 
 class AppRoutes {
   static const String splash = '/';
@@ -36,6 +39,10 @@ class AppRoutes {
   static const String bookingDetail = '/booking/detail';
   static const String profile = '/profile';
   static const String editProfile = '/profile/edit';
+  static const String providerDashboard = '/provider';
+  static const String providerServices = '/provider/services';
+  static const String providerBookings = '/provider/bookings';
+  static const String providerBookingDetail = '/provider/bookings/detail';
 }
 
 class AppRouter {
@@ -52,13 +59,13 @@ class AppRouter {
         path: AppRoutes.splash,
         builder: (context, state) => const SplashScreen(),
       ),
-      
+
       // Onboarding
       GoRoute(
         path: AppRoutes.onboarding,
         builder: (context, state) => const OnboardingScreen(),
       ),
-      
+
       // Auth Routes
       GoRoute(
         path: AppRoutes.login,
@@ -82,7 +89,7 @@ class AppRouter {
         path: AppRoutes.forgotPassword,
         builder: (context, state) => const ForgotPasswordScreen(),
       ),
-      
+
       // Main Shell Route with Bottom Navigation
       ShellRoute(
         navigatorKey: _shellNavigatorKey,
@@ -106,7 +113,7 @@ class AppRouter {
           ),
         ],
       ),
-      
+
       // Service Routes
       GoRoute(
         path: AppRoutes.serviceSubcategories,
@@ -127,7 +134,7 @@ class AppRouter {
           );
         },
       ),
-      
+
       // Booking Routes
       GoRoute(
         path: AppRoutes.booking,
@@ -153,16 +160,34 @@ class AppRouter {
         path: AppRoutes.bookingDetail,
         builder: (context, state) {
           final extra = state.extra as Map<String, dynamic>?;
-          return BookingDetailScreen(
-            bookingId: extra?['bookingId'] ?? 0,
-          );
+          return BookingDetailScreen(bookingId: extra?['bookingId'] ?? 0);
         },
       ),
-      
+
       // Profile Routes
       GoRoute(
         path: AppRoutes.editProfile,
         builder: (context, state) => const EditProfileScreen(),
+      ),
+
+      // Provider Routes
+      GoRoute(
+        path: AppRoutes.providerDashboard,
+        builder: (context, state) => const ProviderDashboardScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.providerServices,
+        builder: (context, state) => const ProviderServicesScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.providerBookings,
+        builder: (context, state) => const ProviderBookingsScreen(),
+      ),
+      GoRoute(
+        path: '${AppRoutes.providerBookingDetail}/:bookingId',
+        builder: (context, state) {
+          return const ProviderBookingsScreen();
+        },
       ),
     ],
   );

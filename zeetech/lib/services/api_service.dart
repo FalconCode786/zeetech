@@ -10,6 +10,8 @@ class ApiService {
   late Dio _dio;
   final StorageService _storageService = StorageService();
 
+  Dio get dio => _dio;
+
   void initialize() {
     _dio = Dio(
       BaseOptions(

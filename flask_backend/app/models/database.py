@@ -14,7 +14,8 @@ def initialize_database():
         'users',
         'service_categories',
         'bookings',
-        'ratings'
+        'ratings',
+        'provider_services'
     ]
 
     for collection_name in collections:
@@ -45,6 +46,11 @@ def initialize_database():
     db['ratings'].create_index('providerId')
     db['ratings'].create_index('customerId')
 
+    # Provider services indexes
+    db['provider_services'].create_index('providerId')
+    db['provider_services'].create_index('status')
+    db['provider_services'].create_index([('providerId', 1), ('status', 1)])
+
     print("Database indexes created successfully")
 
 
@@ -74,3 +80,8 @@ def get_bookings_collection():
 def get_ratings_collection():
     """Get ratings collection"""
     return get_db()['ratings']
+
+
+def get_provider_services_collection():
+    """Get provider_services collection"""
+    return get_db()['provider_services']

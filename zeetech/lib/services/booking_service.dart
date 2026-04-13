@@ -15,17 +15,20 @@ class BookingService {
     String? problemDescription,
     String? specialInstructions,
   }) async {
-    final response = await _apiService.post('/bookings/', data: {
-      'subcategory_id': subcategoryId,
-      'address': address,
-      'city': city,
-      'area': area,
-      'landmark': landmark,
-      'preferred_date': preferredDate.toIso8601String(),
-      'preferred_time_slot': preferredTimeSlot,
-      'problem_description': problemDescription,
-      'special_instructions': specialInstructions,
-    });
+    final response = await _apiService.post(
+      '/bookings/',
+      data: {
+        'subcategory_id': subcategoryId,
+        'address': address,
+        'city': city,
+        'area': area,
+        'landmark': landmark,
+        'preferred_date': preferredDate.toIso8601String(),
+        'preferred_time_slot': preferredTimeSlot,
+        'problem_description': problemDescription,
+        'special_instructions': specialInstructions,
+      },
+    );
     return BookingModel.fromJson(response.data);
   }
 

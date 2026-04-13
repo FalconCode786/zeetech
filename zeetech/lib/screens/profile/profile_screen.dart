@@ -23,16 +23,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       backgroundColor: AppColors.background,
       body: SafeArea(
-        child: CustomScrollView(
-          slivers: [
-            // Profile Header
-            SliverToBoxAdapter(
-              child: _buildProfileHeader(
-                user?.fullName ?? 'User',
-                user?.email ?? '',
-                user?.phone ?? '',
-              ),
-            ),
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 600),
+            child: CustomScrollView(
+              slivers: [
+                // Profile Header
+                SliverToBoxAdapter(
+                  child: _buildProfileHeader(
+                    user?.fullName ?? 'User',
+                    user?.email ?? '',
+                    user?.phone ?? '',
+                  ),
+                ),
 
             // Menu Items
             SliverToBoxAdapter(
@@ -153,12 +156,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                     ),
 
-                    SizedBox(height: 16.h),
-                  ],
+                        SizedBox(height: 16.h),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );
@@ -166,8 +171,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Widget _buildProfileHeader(String name, String email, String phone) {
     return Container(
+      width: double.infinity,
       padding: EdgeInsets.all(24.w),
       decoration: BoxDecoration(
+        color: AppColors.primary,
         gradient: const LinearGradient(colors: AppColors.primaryGradient),
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(24.r),

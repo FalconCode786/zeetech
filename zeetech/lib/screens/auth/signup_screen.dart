@@ -92,7 +92,6 @@ class _SignupScreenState extends State<SignupScreen> {
                   Text(
                     'Create Account',
                     style: TextStyle(
-                      fontFamily: 'GoodTimes',
                       fontSize: 32.sp,
                       fontWeight: FontWeight.bold,
                       color: AppColors.textPrimary,

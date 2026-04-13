@@ -40,3 +40,7 @@ def register_blueprints(app):
     # Phase 7: Upload routes
     from app.routes.uploads import uploads_bp
     app.register_blueprint(uploads_bp)
+
+    # Phase 8: Provider management routes
+    from app.routes.provider import provider_bp
+    app.register_blueprint(provider_bp)
