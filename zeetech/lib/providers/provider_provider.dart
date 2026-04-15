@@ -93,7 +93,8 @@ class BookingModel {
 
 class ProviderProvider extends ChangeNotifier {
   late ProviderApiService _providerApiService;
-  late ApiService _apiService;
+  final ApiService _apiService = ApiService();
+  bool _initialized = false;
 
   List<ProviderModel> services = [];
   List<BookingModel> bookings = [];
@@ -115,14 +116,25 @@ class ProviderProvider extends ChangeNotifier {
   String? errorMessage;
 
   ProviderProvider() {
-    _apiService = ApiService();
-    _providerApiService = ProviderApiService(_apiService.dio);
+    _initializeServices();
+  }
+
+  void _initializeServices() {
+    if (_initialized) return;
+    try {
+      _providerApiService = ProviderApiService(_apiService.dio);
+      _initialized = true;
+    } catch (e) {
+      errorMessage = 'Failed to initialize provider services: $e';
+      notifyListeners();
+    }
   }
 
   // ============ SERVICES MANAGEMENT ============
 
   Future<void> fetchServices() async {
     try {
+      if (!_initialized) _initializeServices();
       isLoadingServices = true;
       errorMessage = null;
       notifyListeners();
@@ -151,6 +163,7 @@ class ProviderProvider extends ChangeNotifier {
     String? description,
   }) async {
     try {
+      if (!_initialized) _initializeServices();
       isLoadingServices = true;
       errorMessage = null;
       notifyListeners();
@@ -186,6 +199,7 @@ class ProviderProvider extends ChangeNotifier {
     String? status,
   }) async {
     try {
+      if (!_initialized) _initializeServices();
       isLoadingServices = true;
       errorMessage = null;
       notifyListeners();
@@ -212,6 +226,7 @@ class ProviderProvider extends ChangeNotifier {
 
   Future<bool> deleteService(String serviceId) async {
     try {
+      if (!_initialized) _initializeServices();
       isLoadingServices = true;
       errorMessage = null;
       notifyListeners();
@@ -234,6 +249,7 @@ class ProviderProvider extends ChangeNotifier {
 
   Future<void> fetchBookings({String? status}) async {
     try {
+      if (!_initialized) _initializeServices();
       isLoadingBookings = true;
       errorMessage = null;
       notifyListeners();
@@ -272,6 +288,7 @@ class ProviderProvider extends ChangeNotifier {
 
   Future<bool> confirmBooking(String bookingId) async {
     try {
+      if (!_initialized) _initializeServices();
       errorMessage = null;
       await _providerApiService.confirmBooking(bookingId);
       await fetchBookings();
@@ -285,6 +302,7 @@ class ProviderProvider extends ChangeNotifier {
 
   Future<bool> startBooking(String bookingId) async {
     try {
+      if (!_initialized) _initializeServices();
       errorMessage = null;
       await _providerApiService.startBooking(bookingId);
       await fetchBookings();
@@ -301,6 +319,7 @@ class ProviderProvider extends ChangeNotifier {
     double? additionalCharges,
   }) async {
     try {
+      if (!_initialized) _initializeServices();
       errorMessage = null;
       await _providerApiService.completeBooking(
         bookingId: bookingId,
@@ -317,6 +336,7 @@ class ProviderProvider extends ChangeNotifier {
 
   Future<bool> cancelBooking(String bookingId, {String? reason}) async {
     try {
+      if (!_initialized) _initializeServices();
       errorMessage = null;
       await _providerApiService.cancelBooking(
         bookingId: bookingId,
@@ -335,6 +355,7 @@ class ProviderProvider extends ChangeNotifier {
 
   Future<void> fetchStats() async {
     try {
+      if (!_initialized) _initializeServices();
       isLoadingStats = true;
       errorMessage = null;
       notifyListeners();

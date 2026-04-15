@@ -1,10 +1,12 @@
 Flask
 Flask-Login
 Flask-CORS
-pymongo
+supabase
 python-dotenv
 werkzeug
 stripe
 Flask-Mail
 Pillow
 requests
+PyJWT
+gunicorn

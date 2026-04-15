@@ -110,20 +110,19 @@ class ServiceService:
         Returns:
             bool: Success status
         """
+        from app.models.database import supabase_client
+
         category = ServiceCategory.find_by_id(category_id)
         if not category:
             raise NotFoundError('Category not found')
 
-        from app.models.database import get_categories_collection
-        from bson.objectid import ObjectId
-
-        result = get_categories_collection().delete_one(
-            {'_id': ObjectId(category_id)})
-
-        if result.deleted_count > 0:
-            return True
-
-        raise Exception('Failed to delete category')
+        try:
+            response = supabase_client.table('serviceCategories').delete().eq(
+                'id', int(category_id)).execute()
+            return response.count > 0 if hasattr(response, 'count') else True
+        except Exception as e:
+            print(f"Error deleting category: {e}")
+            raise Exception('Failed to delete category')
 
     @staticmethod
     def get_category(category_id):

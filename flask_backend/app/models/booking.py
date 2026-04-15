@@ -1,6 +1,5 @@
 """Booking model"""
 
-from bson.objectid import ObjectId
 from app.models.database import get_bookings_collection
 from app.utils.helpers import get_timestamp, is_valid_object_id
 from datetime import datetime
@@ -30,10 +29,10 @@ class Booking:
 
     def __init__(self, customer_id, subcategory_name, base_amount, preferred_date,
                  preferred_time_slot=None, location=None, **kwargs):
-        self._id = kwargs.get('_id')
-        self.customer_id = ObjectId(customer_id) if isinstance(
-            customer_id, str) else customer_id
-        self.provider_id = None
+        self.id = kwargs.get('id') or kwargs.get('_id')
+        self.customer_id = customer_id
+        self.provider_id = kwargs.get(
+            'provider_id') or kwargs.get('providerId')
 
         # Service details
         self.subcategory_name = subcategory_name
@@ -57,10 +56,14 @@ class Booking:
         self.payment_status = kwargs.get(
             'payment_status', PaymentStatus.PENDING.value)
         self.stripe_payment_intent_id = kwargs.get('stripe_payment_intent_id')
+        # 'easypaisa', 'jazzcash', 'stripe'
+        self.payment_method = kwargs.get('payment_method')
+        self.payment_transaction_id = kwargs.get('payment_transaction_id')
 
-        # Rating
+        # Rating and Feedback
         self.customer_rating = kwargs.get('customer_rating')
         self.customer_review = kwargs.get('customer_review')
+        self.feedback_id = kwargs.get('feedback_id')  # Reference to feedback
 
         # Timestamps
         self.created_at = kwargs.get('created_at', get_timestamp())
@@ -76,8 +79,7 @@ class Booking:
 
     def set_provider(self, provider_id):
         """Assign provider to booking"""
-        self.provider_id = ObjectId(provider_id) if isinstance(
-            provider_id, str) else provider_id
+        self.provider_id = provider_id
 
     def update_status(self, new_status):
         """Update booking status with validation"""
@@ -127,7 +129,7 @@ class Booking:
     def to_dict(self, include_id=True):
         """Convert to dictionary"""
         data = {
-            'customerId': str(self.customer_id),
+            'customerId': str(self.customer_id) if self.customer_id else None,
             'providerId': str(self.provider_id) if self.provider_id else None,
             'subcategoryName': self.subcategory_name,
             'baseAmount': self.base_amount,
@@ -142,8 +144,11 @@ class Booking:
             'location': self.location,
             'paymentStatus': self.payment_status,
             'stripePaymentIntentId': self.stripe_payment_intent_id,
+            'paymentMethod': self.payment_method,
+            'paymentTransactionId': self.payment_transaction_id,
             'customerRating': self.customer_rating,
             'customerReview': self.customer_review,
+            'feedbackId': self.feedback_id,
             'createdAt': self.created_at.isoformat() if isinstance(self.created_at, datetime) else self.created_at,
             'updatedAt': self.updated_at.isoformat() if isinstance(self.updated_at, datetime) else self.updated_at,
             'confirmedAt': self.confirmed_at.isoformat() if isinstance(self.confirmed_at, datetime) else self.confirmed_at,
@@ -151,8 +156,9 @@ class Booking:
             'completedAt': self.completed_at.isoformat() if isinstance(self.completed_at, datetime) else self.completed_at,
         }
 
-        if include_id and self._id:
-            data['_id'] = str(self._id)
+        if include_id and self.id:
+            data['id'] = str(self.id)
+            data['_id'] = str(self.id)
 
         return data
 
@@ -160,7 +166,7 @@ class Booking:
         """Save booking to database"""
         bookings_collection = get_bookings_collection()
 
-        mongo_data = {
+        supabase_data = {
             'customerId': self.customer_id,
             'providerId': self.provider_id,
             'subcategoryName': self.subcategory_name,
@@ -175,135 +181,105 @@ class Booking:
             'location': self.location,
             'paymentStatus': self.payment_status,
             'stripePaymentIntentId': self.stripe_payment_intent_id,
+            'paymentMethod': self.payment_method,
+            'paymentTransactionId': self.payment_transaction_id,
             'customerRating': self.customer_rating,
             'customerReview': self.customer_review,
-            'updatedAt': get_timestamp(),
-            'confirmedAt': self.confirmed_at,
-            'assignedAt': self.assigned_at,
-            'completedAt': self.completed_at,
+            'feedbackId': self.feedback_id,
+            'updatedAt': get_timestamp().isoformat(),
+            'confirmedAt': self.confirmed_at.isoformat() if isinstance(self.confirmed_at, datetime) else self.confirmed_at,
+            'assignedAt': self.assigned_at.isoformat() if isinstance(self.assigned_at, datetime) else self.assigned_at,
+            'completedAt': self.completed_at.isoformat() if isinstance(self.completed_at, datetime) else self.completed_at,
         }
 
-        if self._id:
-            result = bookings_collection.update_one(
-                {'_id': self._id},
-                {'$set': mongo_data}
-            )
-            return result.modified_count > 0
-        else:
-            mongo_data['createdAt'] = get_timestamp()
-            result = bookings_collection.insert_one(mongo_data)
-            self._id = result.inserted_id
-            return True
+        try:
+            if self.id:
+                result = bookings_collection.update(
+                    supabase_data).eq('id', self.id).execute()
+                return len(result.data) > 0
+            else:
+                supabase_data['createdAt'] = get_timestamp().isoformat()
+                result = bookings_collection.insert(supabase_data).execute()
+                if result.data:
+                    self.id = result.data[0]['id']
+                    return True
+                return False
+        except Exception as e:
+            print(f"Error saving booking: {e}")
+            return False
 
     @classmethod
     def find_by_id(cls, booking_id):
         """Find booking by ID"""
-        if not is_valid_object_id(booking_id):
+        if not booking_id:
             return None
 
         bookings_collection = get_bookings_collection()
-        doc = bookings_collection.find_one({'_id': ObjectId(booking_id)})
-
-        if not doc:
-            return None
-
-        return cls._from_doc(doc)
+        try:
+            response = bookings_collection.select(
+                '*').eq('id', booking_id).execute()
+            if response.data:
+                return cls._from_doc(response.data[0])
+        except Exception as e:
+            print(f"Error finding booking: {e}")
+        return None
 
     @classmethod
-    def find_by_customer(cls, customer_id, status=None, skip=0, limit=10):
+    def find_by_customer(cls, customer_id, skip=0, limit=10):
         """Find bookings by customer ID"""
-        if not is_valid_object_id(customer_id):
-            return []
-
-        bookings_collection = get_bookings_collection()
-        query = {'customerId': ObjectId(customer_id)}
-
-        if status:
-            query['status'] = status
-
-        cursor = bookings_collection.find(query).sort(
-            'createdAt', -1).skip(skip).limit(limit)
-
         bookings = []
-        for doc in cursor:
-            bookings.append(cls._from_doc(doc))
-
+        try:
+            response = get_bookings_collection().select('*')\
+                .eq('customerId', customer_id)\
+                .order('createdAt', desc=True)\
+                .range(skip, skip + limit - 1).execute()
+            for doc in response.data:
+                bookings.append(cls._from_doc(doc))
+        except Exception as e:
+            print(f"Error finding bookings: {e}")
         return bookings
 
     @classmethod
-    def count_by_customer(cls, customer_id, status=None):
-        """Count bookings by customer"""
-        if not is_valid_object_id(customer_id):
+    def count_by_customer(cls, customer_id):
+        """Count bookings for a customer"""
+        try:
+            response = get_bookings_collection().select(
+                'id', count='exact').eq('customerId', customer_id).execute()
+            return response.count
+        except Exception:
             return 0
-
-        bookings_collection = get_bookings_collection()
-        query = {'customerId': ObjectId(customer_id)}
-
-        if status:
-            query['status'] = status
-
-        return bookings_collection.count_documents(query)
-
-    @classmethod
-    def find_all(cls, status=None, skip=0, limit=10):
-        """Find all bookings (for admin)"""
-        bookings_collection = get_bookings_collection()
-        query = {}
-
-        if status:
-            query['status'] = status
-
-        cursor = bookings_collection.find(query).sort(
-            'createdAt', -1).skip(skip).limit(limit)
-
-        bookings = []
-        for doc in cursor:
-            bookings.append(cls._from_doc(doc))
-
-        return bookings
-
-    @classmethod
-    def count_all(cls, status=None):
-        """Count all bookings"""
-        bookings_collection = get_bookings_collection()
-        query = {}
-
-        if status:
-            query['status'] = status
-
-        return bookings_collection.count_documents(query)
 
     @classmethod
     def _from_doc(cls, doc):
-        """Create Booking instance from MongoDB document"""
+        """Create Booking instance from Supabase record"""
         if not doc:
             return None
 
         booking = cls(
             customer_id=doc.get('customerId'),
             subcategory_name=doc.get('subcategoryName'),
-            base_amount=doc.get('baseAmount'),
+            base_amount=doc.get('baseAmount', 0),
             preferred_date=doc.get('preferredDate'),
-            _id=doc.get('_id'),
-            status=doc.get('status', BookingStatus.PENDING.value),
+            preferred_time_slot=doc.get('preferredTimeSlot'),
+            location=doc.get('location'),
+            id=doc.get('id'),
+            provider_id=doc.get('providerId'),
+            additional_charges=doc.get('additionalCharges', 0),
+            discount_amount=doc.get('discountAmount', 0),
+            status=doc.get('status'),
             problem_description=doc.get('problemDescription'),
             special_instructions=doc.get('specialInstructions'),
-            preferred_time_slot=doc.get('preferredTimeSlot'),
-            location=doc.get('location', {}),
-            payment_status=doc.get(
-                'paymentStatus', PaymentStatus.PENDING.value),
+            payment_status=doc.get('paymentStatus'),
             stripe_payment_intent_id=doc.get('stripePaymentIntentId'),
-            additional_charges=doc.get('additionalCharges', 0.0),
-            discount_amount=doc.get('discountAmount', 0.0),
+            payment_method=doc.get('paymentMethod'),
+            payment_transaction_id=doc.get('paymentTransactionId'),
             customer_rating=doc.get('customerRating'),
             customer_review=doc.get('customerReview'),
-            created_at=doc.get('createdAt', get_timestamp()),
-            updated_at=doc.get('updatedAt', get_timestamp()),
+            feedback_id=doc.get('feedbackId'),
+            created_at=doc.get('createdAt'),
+            updated_at=doc.get('updatedAt'),
             confirmed_at=doc.get('confirmedAt'),
             assigned_at=doc.get('assignedAt'),
-            completed_at=doc.get('completedAt'),
+            completed_at=doc.get('completedAt')
         )
-
-        booking.provider_id = doc.get('providerId')
-
         return booking

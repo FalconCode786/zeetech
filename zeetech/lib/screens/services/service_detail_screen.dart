@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import '../../core/constants/app_colors.dart';
+import '../../widgets/custom_app_bar.dart';
 
 class ServiceDetailScreen extends StatelessWidget {
   final int subcategoryId;
@@ -11,13 +13,10 @@ class ServiceDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: AppBar(
-        title: Text(
-          'Service Details',
-          style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
-        ),
-        centerTitle: true,
-        elevation: 0,
+      appBar: CustomAppBar(
+        title: 'Service Details',
+        showBackButton: true,
+        onBackPressed: () => context.pop(),
       ),
       body: Center(
         child: Text(

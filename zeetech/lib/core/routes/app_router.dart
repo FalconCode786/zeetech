@@ -16,6 +16,12 @@ import '../../screens/booking/my_bookings_screen.dart';
 import '../../screens/booking/booking_detail_screen.dart';
 import '../../screens/profile/profile_screen.dart';
 import '../../screens/profile/edit_profile_screen.dart';
+import '../../screens/profile/my_addresses_screen.dart';
+import '../../screens/profile/payment_methods_screen.dart';
+import '../../screens/profile/help_center_screen.dart';
+import '../../screens/profile/contact_us_screen.dart';
+import '../../screens/profile/privacy_policy_screen.dart';
+import '../../screens/profile/language_selection_screen.dart';
 import '../../screens/main/main_screen.dart';
 import '../../screens/provider/provider_dashboard_screen.dart';
 import '../../screens/provider/provider_services_screen.dart';
@@ -39,6 +45,12 @@ class AppRoutes {
   static const String bookingDetail = '/booking/detail';
   static const String profile = '/profile';
   static const String editProfile = '/profile/edit';
+  static const String myAddresses = '/profile/addresses';
+  static const String paymentMethods = '/profile/payment-methods';
+  static const String helpCenter = '/profile/help';
+  static const String contactUs = '/profile/contact';
+  static const String privacyPolicy = '/profile/privacy';
+  static const String languageSelection = '/profile/language';
   static const String providerDashboard = '/provider';
   static const String providerServices = '/provider/services';
   static const String providerBookings = '/provider/bookings';
@@ -163,6 +175,36 @@ class AppRouter {
           return BookingDetailScreen(bookingId: extra?['bookingId'] ?? 0);
         },
       ),
+      // My Addresses Route
+      GoRoute(
+        path: AppRoutes.myAddresses,
+        builder: (context, state) => const MyAddressesScreen(),
+      ),
+      // Payment Methods Route
+      GoRoute(
+        path: AppRoutes.paymentMethods,
+        builder: (context, state) => const PaymentMethodsScreen(),
+      ),
+      // Help Center Route
+      GoRoute(
+        path: AppRoutes.helpCenter,
+        builder: (context, state) => const HelpCenterScreen(),
+      ),
+      // Contact Us Route
+      GoRoute(
+        path: AppRoutes.contactUs,
+        builder: (context, state) => const ContactUsScreen(),
+      ),
+      // Privacy Policy Route
+      GoRoute(
+        path: AppRoutes.privacyPolicy,
+        builder: (context, state) => const PrivacyPolicyScreen(),
+      ),
+      // Language Selection Route
+      GoRoute(
+        path: AppRoutes.languageSelection,
+        builder: (context, state) => const LanguageSelectionScreen(),
+      ),
 
       // Profile Routes
       GoRoute(
@@ -170,11 +212,23 @@ class AppRouter {
         builder: (context, state) => const EditProfileScreen(),
       ),
 
-      // Provider Routes
+      // Provider Routes - Nested structure for proper navigation
       GoRoute(
         path: AppRoutes.providerDashboard,
         builder: (context, state) => const ProviderDashboardScreen(),
+        routes: [
+          GoRoute(
+            path: 'services',
+            builder: (context, state) => const ProviderServicesScreen(),
+          ),
+          GoRoute(
+            path: 'bookings',
+            builder: (context, state) => const ProviderBookingsScreen(),
+          ),
+        ],
       ),
+
+      // Legacy top-level provider routes for backward compatibility
       GoRoute(
         path: AppRoutes.providerServices,
         builder: (context, state) => const ProviderServicesScreen(),
@@ -182,12 +236,6 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.providerBookings,
         builder: (context, state) => const ProviderBookingsScreen(),
-      ),
-      GoRoute(
-        path: '${AppRoutes.providerBookingDetail}/:bookingId',
-        builder: (context, state) {
-          return const ProviderBookingsScreen();
-        },
       ),
     ],
   );

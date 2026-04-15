@@ -6,10 +6,10 @@ class AppConstants {
 
   // API Configuration
   // For Android Emulator: use 10.0.2.2 (special alias for host machine)
-  // For Physical Device: use 192.168.100.4 (your machine's IP on network)
+  // For Physical Device: use 192.168.18.69 (your machine's IP on network)
   // For Web/Desktop: use localhost:5000
-  static const String baseUrl = 'http://192.168.18.69:5000/api';
-  static const int apiTimeout = 30000; // milliseconds
+  static const String baseUrl = ' http://192.168.100.4:5000/api';
+  static const int apiTimeout = 3000; // milliseconds
 
   // Storage Keys
   static const String tokenKey = 'auth_token';

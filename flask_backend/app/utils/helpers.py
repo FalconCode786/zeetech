@@ -2,26 +2,25 @@
 
 from datetime import datetime, timezone
 from flask import jsonify
-from bson.objectid import ObjectId
+import uuid
 
 
 def object_id(obj):
-    """Convert string to ObjectId if valid, otherwise raise error"""
-    try:
-        return ObjectId(obj)
-    except Exception:
+    """Placeholder for legacy ObjectId logic, now returns string ID or None"""
+    if not obj:
         return None
+    return str(obj)
 
 
 def is_valid_object_id(obj_id):
-    """Check if string is a valid MongoDB ObjectId"""
-    if isinstance(obj_id, ObjectId):
-        return True
-    try:
-        ObjectId(obj_id)
-        return True
-    except Exception:
+    """Check if string is a valid UUID or ID (depends on Supabase schema)"""
+    if not obj_id:
         return False
+    try:
+        uuid.UUID(str(obj_id))
+        return True
+    except ValueError:
+        return isinstance(obj_id, int) or isinstance(obj_id, str)
 
 
 def get_timestamp():
@@ -40,7 +39,7 @@ def format_response(data=None, message=None, code=200):
 
 
 def serialize_document(doc):
-    """Convert MongoDB document to JSON-serializable dict"""
+    """Convert Supabase dictionary to JSON-serializable dict"""
     if doc is None:
         return None
 
@@ -50,9 +49,7 @@ def serialize_document(doc):
     if isinstance(doc, dict):
         result = {}
         for key, value in doc.items():
-            if isinstance(value, ObjectId):
-                result[key] = str(value)
-            elif isinstance(value, datetime):
+            if isinstance(value, datetime):
                 result[key] = value.isoformat()
             elif isinstance(value, dict):
                 result[key] = serialize_document(value)
@@ -61,9 +58,6 @@ def serialize_document(doc):
             else:
                 result[key] = value
         return result
-
-    if isinstance(doc, ObjectId):
-        return str(doc)
 
     if isinstance(doc, datetime):
         return doc.isoformat()
@@ -101,8 +95,8 @@ def validate_email(email):
 
 
 def validate_phone(phone):
-    """Simple phone validation (international format)"""
+    """Validate phone number (Pakistan format: +92 or 03xx)"""
     import re
-    # Matches phone numbers like +1234567890 or 1234567890
-    pattern = r'^\+?[1-9]\d{1,14}$'
-    return re.match(pattern, phone) is not None
+    # Accept various formats: +92XXXXXXXXXX, 03XXXXXXXXX, 92XXXXXXXXXX
+    pattern = r'^(\+92|92|0)[3-9]\d{8,9}$'
+    return re.match(pattern, str(phone).replace(' ', '').replace('-', '')) is not None

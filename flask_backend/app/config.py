@@ -11,14 +11,26 @@ class Config:
     DEBUG = False
     TESTING = False
 
-    # MongoDB
-    MONGODB_URI = os.getenv('MONGODB_URI', 'mongodb://localhost:27017/zeetech')
-    MONGODB_DB_NAME = os.getenv('MONGODB_DB_NAME', 'zeetech')
+    # Supabase Configuration
+    SUPABASE_URL = os.getenv('SUPABASE_URL')
+    SUPABASE_KEY = os.getenv('SUPABASE_KEY')
+    SUPABASE_JWT_SECRET = os.getenv('SUPABASE_JWT_SECRET')
 
-    # Stripe
+    # Stripe (optional)
     STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
     STRIPE_PUBLISHABLE_KEY = os.getenv('STRIPE_PUBLISHABLE_KEY')
     STRIPE_WEBHOOK_SECRET = os.getenv('STRIPE_WEBHOOK_SECRET')
+
+    # Pakistani Payment Gateways
+    EASYPAISA_MERCHANT_ID = os.getenv('EASYPAISA_MERCHANT_ID')
+    EASYPAISA_PASSWORD = os.getenv('EASYPAISA_PASSWORD')
+    EASYPAISA_API_URL = os.getenv(
+        'EASYPAISA_API_URL', 'https://easypaisa.com.pk/api')
+
+    JAZZCASH_MERCHANT_ID = os.getenv('JAZZCASH_MERCHANT_ID')
+    JAZZCASH_PASSWORD = os.getenv('JAZZCASH_PASSWORD')
+    JAZZCASH_API_URL = os.getenv(
+        'JAZZCASH_API_URL', 'https://sandbox.jazzcash.com.pk')
 
     # Email
     MAIL_SERVER = os.getenv('MAIL_SERVER', 'smtp.gmail.com')
@@ -59,8 +71,6 @@ class TestingConfig(Config):
     """Testing configuration"""
     DEBUG = True
     TESTING = True
-    MONGODB_URI = 'mongodb://localhost:27017/zeetech_test'
-    MONGODB_DB_NAME = 'zeetech_test'
 
 
 # Configuration dictionary

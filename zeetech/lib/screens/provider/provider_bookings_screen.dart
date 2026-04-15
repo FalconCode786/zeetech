@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import '../../core/constants/app_colors.dart';
 import '../../providers/provider_provider.dart';
+import '../../widgets/custom_app_bar.dart';
 
 class ProviderBookingsScreen extends StatefulWidget {
   const ProviderBookingsScreen({super.key});
@@ -28,11 +29,10 @@ class _ProviderBookingsScreenState extends State<ProviderBookingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: AppBar(
-        title: Text(
-          'Manage Bookings',
-          style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
-        ),
+      appBar: CustomAppBar(
+        title: 'Manage Bookings',
+        showBackButton: true,
+        onBackPressed: () => context.pop(),
       ),
       body: SafeArea(
         child: Center(
@@ -504,6 +504,15 @@ class _ProviderBookingsScreenState extends State<ProviderBookingsScreen> {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('Booking confirmed')),
                 );
+              } else {
+                if (!context.mounted) return;
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      'Error: ${provider.errorMessage ?? "Failed to confirm booking"}',
+                    ),
+                  ),
+                );
               }
             },
             child: Text('Confirm', style: TextStyle(fontSize: 14.sp)),
@@ -544,6 +553,15 @@ class _ProviderBookingsScreenState extends State<ProviderBookingsScreen> {
                 ScaffoldMessenger.of(
                   context,
                 ).showSnackBar(const SnackBar(content: Text('Work started')));
+              } else {
+                if (!context.mounted) return;
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      'Error: ${provider.errorMessage ?? "Failed to start booking"}',
+                    ),
+                  ),
+                );
               }
             },
             child: Text('Start', style: TextStyle(fontSize: 14.sp)),
@@ -609,6 +627,15 @@ class _ProviderBookingsScreenState extends State<ProviderBookingsScreen> {
                 context.pop();
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('Booking completed')),
+                );
+              } else {
+                if (!context.mounted) return;
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      'Error: ${provider.errorMessage ?? "Failed to complete booking"}',
+                    ),
+                  ),
                 );
               }
             },

@@ -11,7 +11,6 @@ bookings_bp = Blueprint('bookings', __name__, url_prefix='/api/bookings')
 
 
 @bookings_bp.route('', methods=['POST'])
-@login_required
 def create_booking():
     """Create a new booking (customer only)"""
     try:
@@ -40,7 +39,6 @@ def create_booking():
 
 
 @bookings_bp.route('', methods=['GET'])
-@login_required
 def list_bookings():
     """List user's bookings"""
     try:
@@ -81,7 +79,6 @@ def list_bookings():
 
 
 @bookings_bp.route('/<booking_id>', methods=['GET'])
-@login_required
 def get_booking(booking_id):
     """Get booking details"""
     try:
@@ -114,7 +111,6 @@ def get_booking(booking_id):
 
 
 @bookings_bp.route('/<booking_id>', methods=['PUT'])
-@login_required
 def update_booking(booking_id):
     """Update booking details"""
     try:
@@ -171,7 +167,6 @@ def update_booking(booking_id):
 
 
 @bookings_bp.route('/<booking_id>/status', methods=['PUT'])
-@login_required
 def update_status(booking_id):
     """Update booking status"""
     try:
@@ -210,7 +205,6 @@ def update_status(booking_id):
 
 
 @bookings_bp.route('/<booking_id>/assign-provider', methods=['PUT'])
-@login_required
 def assign_provider(booking_id):
     """Assign a provider to booking (admin only)"""
     try:

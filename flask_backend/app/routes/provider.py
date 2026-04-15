@@ -1,9 +1,9 @@
 """Provider management routes for providers to manage their services and bookings"""
 
 from flask import Blueprint, request
-from flask_login import login_required, current_user
+from flask_login import current_user
 from app.services.provider_service import ProviderService
-from app.utils.decorators import provider_required
+from app.utils.decorators import provider_required, _get_user_id
 from app.utils.errors import AppError
 from app.utils.helpers import serialize_document, is_valid_object_id, pagination_params
 
@@ -13,15 +13,17 @@ provider_bp = Blueprint('provider', __name__, url_prefix='/api/provider')
 # ============ PROVIDER SERVICES MANAGEMENT ============
 
 @provider_bp.route('/services', methods=['GET'])
-@login_required
 @provider_required
 def get_provider_services():
     """Get all services offered by the provider"""
     try:
         params = pagination_params(request)
 
+        # Get user from session or JWT token
+        provider_id = _get_user_id()
+
         services, total = ProviderService.get_provider_services(
-            current_user.get_id(),
+            provider_id,
             skip=params['skip'],
             limit=params['limit']
         )
@@ -45,7 +47,6 @@ def get_provider_services():
 
 
 @provider_bp.route('/services', methods=['POST'])
-@login_required
 @provider_required
 def create_provider_service():
     """Create a new service offering"""
@@ -55,8 +56,10 @@ def create_provider_service():
         if not data:
             return {'error': 'Request body is required', 'code': 'INVALID_REQUEST'}, 400
 
-        service = ProviderService.create_provider_service(
-            current_user.get_id(), data)
+        # Get user from session
+        provider_id = current_user.get_id()
+
+        service = ProviderService.create_provider_service(provider_id, data)
 
         return {
             'message': 'Service created successfully',
@@ -72,7 +75,6 @@ def create_provider_service():
 
 
 @provider_bp.route('/services/<service_id>', methods=['PUT'])
-@login_required
 @provider_required
 def update_provider_service(service_id):
     """Update a provider's service"""
@@ -102,7 +104,6 @@ def update_provider_service(service_id):
 
 
 @provider_bp.route('/services/<service_id>', methods=['DELETE'])
-@login_required
 @provider_required
 def delete_provider_service(service_id):
     """Delete a provider's service"""
@@ -126,7 +127,6 @@ def delete_provider_service(service_id):
 # ============ PROVIDER BOOKINGS MANAGEMENT ============
 
 @provider_bp.route('/bookings', methods=['GET'])
-@login_required
 @provider_required
 def get_provider_bookings():
     """Get all bookings for the provider"""
@@ -160,7 +160,6 @@ def get_provider_bookings():
 
 
 @provider_bp.route('/bookings/<booking_id>', methods=['GET'])
-@login_required
 @provider_required
 def get_booking_detail(booking_id):
     """Get booking details"""
@@ -185,7 +184,6 @@ def get_booking_detail(booking_id):
 
 
 @provider_bp.route('/bookings/<booking_id>/confirm', methods=['POST'])
-@login_required
 @provider_required
 def confirm_booking(booking_id):
     """Confirm/accept a booking"""
@@ -206,7 +204,6 @@ def confirm_booking(booking_id):
 
 
 @provider_bp.route('/bookings/<booking_id>/start', methods=['POST'])
-@login_required
 @provider_required
 def start_booking(booking_id):
     """Start work on a booking"""
@@ -227,7 +224,6 @@ def start_booking(booking_id):
 
 
 @provider_bp.route('/bookings/<booking_id>/complete', methods=['POST'])
-@login_required
 @provider_required
 def complete_booking(booking_id):
     """Complete a booking"""
@@ -251,7 +247,6 @@ def complete_booking(booking_id):
 
 
 @provider_bp.route('/bookings/<booking_id>/cancel', methods=['POST'])
-@login_required
 @provider_required
 def cancel_booking(booking_id):
     """Cancel a booking"""
@@ -278,7 +273,6 @@ def cancel_booking(booking_id):
 # ============ PROVIDER STATISTICS ============
 
 @provider_bp.route('/stats', methods=['GET'])
-@login_required
 @provider_required
 def get_provider_stats():
     """Get provider statistics"""

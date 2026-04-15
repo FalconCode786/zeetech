@@ -5,6 +5,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import '../../core/constants/app_colors.dart';
 import '../../core/routes/app_router.dart';
 import '../../widgets/custom_button.dart';
+import '../../widgets/custom_app_bar.dart';
 
 class BookingConfirmationScreen extends StatelessWidget {
   final String bookingNumber;
@@ -15,6 +16,11 @@ class BookingConfirmationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
+      appBar: CustomAppBar(
+        title: 'Booking Confirmed',
+        showBackButton: true,
+        onBackPressed: () => context.go(AppRoutes.home),
+      ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(24.w),

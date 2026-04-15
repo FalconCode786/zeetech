@@ -6,11 +6,20 @@ import 'core/routes/app_router.dart';
 import 'providers/auth_provider.dart';
 import 'providers/service_provider.dart';
 import 'providers/booking_provider.dart';
+import 'providers/provider_provider.dart';
 import 'services/api_service.dart';
+import 'services/storage_service.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  ApiService().initialize();
+
+  // Initialize storage service first
+  final storageService = StorageService();
+  await storageService.init();
+
+  // Then initialize API service
+  await ApiService().initialize();
+
   runApp(const ZeetechApp());
 }
 
@@ -29,6 +38,7 @@ class ZeetechApp extends StatelessWidget {
             ChangeNotifierProvider(create: (_) => AuthProvider()),
             ChangeNotifierProvider(create: (_) => ServiceProvider()),
             ChangeNotifierProvider(create: (_) => BookingProvider()),
+            ChangeNotifierProvider(create: (_) => ProviderProvider()),
           ],
           child: MaterialApp.router(
             title: 'Zeetech',

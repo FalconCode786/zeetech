@@ -11,6 +11,7 @@ import '../../providers/booking_provider.dart';
 import '../../widgets/custom_text_field.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/loading_overlay.dart';
+import '../../widgets/custom_app_bar.dart';
 
 class BookingScreen extends StatefulWidget {
   final int subcategoryId;
@@ -196,13 +197,10 @@ class _BookingScreenState extends State<BookingScreen> {
       isLoading: bookingProvider.isLoading,
       child: Scaffold(
         backgroundColor: AppColors.background,
-        appBar: AppBar(
-          title: Text(
-            'Book Service',
-            style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
-          ),
-          centerTitle: true,
-          elevation: 0,
+        appBar: CustomAppBar(
+          title: 'Book Service',
+          showBackButton: true,
+          onBackPressed: () => context.pop(),
         ),
         body: SafeArea(
           child: SingleChildScrollView(

@@ -1,4 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
+import 'package:dio_cookie_manager/dio_cookie_manager.dart';
+import 'package:cookie_jar/cookie_jar.dart';
+
 import '../core/constants/app_constants.dart';
 import 'storage_service.dart';
 
@@ -12,7 +16,7 @@ class ApiService {
 
   Dio get dio => _dio;
 
-  void initialize() {
+  Future<void> initialize() async {
     _dio = Dio(
       BaseOptions(
         baseUrl: AppConstants.baseUrl,
@@ -22,24 +26,81 @@ class ApiService {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
         },
+        validateStatus: (status) {
+          // Don't throw for any status code, let app handle it
+          return status != null && status < 500;
+        },
       ),
     );
 
+    // Configure for web platform - include credentials for cookie-based auth
+    if (kIsWeb) {
+      _dio.options.extra['withCredentials'] = true;
+      if (kDebugMode) {
+        print('[API] Configured for web - credentials will be included');
+      }
+    }
+
+    // Add cookie manager for session management
+    // Use in-memory for web, persistent for mobile
+    await _initializeCookieManager();
+
+    // Add Authorization header interceptor
     _dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) async {
-          final token = await _storageService.getToken();
-          if (token != null) {
-            options.headers['Authorization'] = 'Bearer $token';
+          // Add token to Authorization header if available
+          try {
+            final token = await _storageService.getToken();
+            if (token != null && token.isNotEmpty) {
+              options.headers['Authorization'] = 'Bearer $token';
+              if (kDebugMode) {
+                print('[API] Added Authorization header with token');
+              }
+            }
+          } catch (e) {
+            if (kDebugMode) {
+              print('[API] Failed to get token for Authorization header: $e');
+            }
+          }
+
+          // On web platform, ensure credentials are included for CORS
+          if (kIsWeb) {
+            // This helps with cross-origin cookie/credential handling
+            // Note: backend must have proper CORS headers set
+          }
+
+          return handler.next(options);
+        },
+      ),
+    );
+
+    // Add logging and error handling interceptor
+    _dio.interceptors.add(
+      InterceptorsWrapper(
+        onRequest: (options, handler) async {
+          if (kDebugMode) {
+            print(
+              '[API] ${options.method} ${AppConstants.baseUrl}${options.path}',
+            );
+            print('[API] Headers: ${options.headers}');
           }
           return handler.next(options);
         },
         onError: (error, handler) async {
-          if (error.response?.statusCode == 401) {
-            // Handle token refresh or logout
-            await _storageService.clearAll();
+          if (kDebugMode) {
+            print(
+              '[API] Error: ${error.response?.statusCode} - ${error.message}',
+            );
+            print('[API] Response: ${error.response?.data}');
           }
           return handler.next(error);
+        },
+        onResponse: (response, handler) async {
+          if (kDebugMode) {
+            print('[API] Response Status: ${response.statusCode}');
+          }
+          return handler.next(response);
         },
       ),
     );
@@ -50,69 +111,125 @@ class ApiService {
     Map<String, dynamic>? queryParameters,
   }) async {
     try {
-      return await _dio.get(path, queryParameters: queryParameters);
-    } catch (e) {
-      throw _handleError(e);
-    }
-  }
-
-  Future<Response> post(String path, {dynamic data}) async {
-    try {
-      print('[API] POST: ${AppConstants.baseUrl}$path');
-      print('[API] Data: $data');
-      final response = await _dio.post(path, data: data);
-      print('[API] Response: ${response.statusCode} - ${response.data}');
+      if (kDebugMode) {
+        print('[API] GET: ${AppConstants.baseUrl}$path');
+      }
+      final response = await _dio.get(path, queryParameters: queryParameters);
+      if (kDebugMode) {
+        print('[API] Response: ${response.statusCode}');
+      }
       return response;
     } catch (e) {
-      print('[API] Error: $e');
-      throw _handleError(e);
+      if (kDebugMode) {
+        print('[API] Error: $e');
+      }
+      rethrow;
     }
   }
 
-  Future<Response> put(String path, {dynamic data}) async {
+  Future<Response> post(
+    String path, {
+    required Map<String, dynamic> data,
+  }) async {
     try {
-      return await _dio.put(path, data: data);
+      if (kDebugMode) {
+        print('[API] POST: ${AppConstants.baseUrl}$path');
+        print('[API] Data: $data');
+      }
+      final response = await _dio.post(path, data: data);
+      if (kDebugMode) {
+        print('[API] Response: ${response.statusCode}');
+      }
+      return response;
     } catch (e) {
-      throw _handleError(e);
+      if (kDebugMode) {
+        print('[API] Error: $e');
+      }
+      rethrow;
     }
   }
 
-  Future<Response> delete(String path) async {
+  Future<Response> put(
+    String path, {
+    required Map<String, dynamic> data,
+  }) async {
     try {
-      return await _dio.delete(path);
+      if (kDebugMode) {
+        print('[API] PUT: ${AppConstants.baseUrl}$path');
+        print('[API] Data: $data');
+      }
+      final response = await _dio.put(path, data: data);
+      if (kDebugMode) {
+        print('[API] Response: ${response.statusCode}');
+      }
+      return response;
     } catch (e) {
-      throw _handleError(e);
+      if (kDebugMode) {
+        print('[API] Error: $e');
+      }
+      rethrow;
     }
   }
 
-  String _handleError(dynamic error) {
-    if (error is DioException) {
-      print('[API Error] Type: ${error.type}, Message: ${error.message}');
-      print('[API Error] Response status: ${error.response?.statusCode}');
-      print('[API Error] Response data: ${error.response?.data}');
+  Future<Response> delete(String path, {Map<String, dynamic>? data}) async {
+    try {
+      if (kDebugMode) {
+        print('[API] DELETE: ${AppConstants.baseUrl}$path');
+      }
+      final response = await _dio.delete(path, data: data);
+      if (kDebugMode) {
+        print('[API] Response: ${response.statusCode}');
+      }
+      return response;
+    } catch (e) {
+      if (kDebugMode) {
+        print('[API] Error: $e');
+      }
+      rethrow;
+    }
+  }
 
-      if (error.response != null) {
-        final data = error.response?.data;
-        if (data is Map) {
-          if (data.containsKey('error')) {
-            return data['error'] as String;
+  Future<void> _initializeCookieManager() async {
+    try {
+      if (kIsWeb) {
+        // Web platform: do NOT use CookieManager (not supported on web)
+        // Dio handles cookies automatically in web environments
+        if (kDebugMode) {
+          print(
+            '[API] Web environment detected - using native cookie handling',
+          );
+        }
+      } else {
+        // Mobile/desktop: use CookieManager with persistent storage
+        try {
+          final cookieJar = PersistCookieJar(ignoreExpires: true);
+          _dio.interceptors.add(CookieManager(cookieJar));
+          if (kDebugMode) {
+            print('[API] Using persistent cookie storage');
           }
-          if (data.containsKey('detail')) {
-            return data['detail'] as String;
+          return;
+        } catch (e) {
+          if (kDebugMode) {
+            print('[API] Failed to load persistent storage: $e');
           }
         }
-        return 'Server error: ${error.response?.statusCode}';
-      }
 
-      if (error.type == DioExceptionType.connectionTimeout) {
-        return 'Connection timeout. Please check your internet and ensure the backend is running.';
+        // Fallback to in-memory CookieManager
+        try {
+          _dio.interceptors.add(CookieManager(CookieJar()));
+          if (kDebugMode) {
+            print('[API] Using in-memory cookie storage');
+          }
+        } catch (e) {
+          if (kDebugMode) {
+            print('[API] Failed to add in-memory cookie manager: $e');
+          }
+        }
       }
-      if (error.type == DioExceptionType.receiveTimeout) {
-        return 'Server took too long to respond.';
+    } catch (e) {
+      if (kDebugMode) {
+        print('[API] Cookie manager initialization failed: $e');
       }
-
-      return 'Network error: ${error.message}. Please check your connection and ensure the backend is running on ${AppConstants.baseUrl}';
     }
-    return error.toString();
   }
 }

@@ -37,124 +37,147 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
 
-            // Menu Items
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: EdgeInsets.all(16.w),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _buildSectionTitle('Account'),
-                    SizedBox(height: 12.h),
-                    _buildMenuItem(
-                      icon: Icons.person_outline,
-                      title: 'Edit Profile',
-                      onTap: () {
-                        context.push(AppRoutes.editProfile);
-                      },
-                    ),
-                    _buildMenuItem(
-                      icon: Icons.location_on_outlined,
-                      title: 'My Addresses',
-                      onTap: () {},
-                    ),
-                    _buildMenuItem(
-                      icon: Icons.payment_outlined,
-                      title: 'Payment Methods',
-                      onTap: () {},
-                    ),
-
-                    SizedBox(height: 24.h),
-
-                    _buildSectionTitle('Support'),
-                    SizedBox(height: 12.h),
-                    _buildMenuItem(
-                      icon: Icons.help_outline,
-                      title: 'Help Center',
-                      onTap: () {},
-                    ),
-                    _buildMenuItem(
-                      icon: Icons.chat_bubble_outline,
-                      title: 'Contact Us',
-                      onTap: () {},
-                    ),
-                    _buildMenuItem(
-                      icon: Icons.privacy_tip_outlined,
-                      title: 'Privacy Policy',
-                      onTap: () {},
-                    ),
-
-                    SizedBox(height: 24.h),
-
-                    _buildSectionTitle('App'),
-                    SizedBox(height: 12.h),
-                    _buildMenuItem(
-                      icon: Icons.language,
-                      title: 'Language',
-                      trailing: Text(
-                        'English',
-                        style: TextStyle(
-                          color: AppColors.textSecondary,
-                          fontSize: 14.sp,
+                // Menu Items
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: EdgeInsets.all(16.w),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        _buildSectionTitle('Account'),
+                        SizedBox(height: 12.h),
+                        _buildMenuItem(
+                          icon: Icons.person_outline,
+                          title: 'Edit Profile',
+                          onTap: () {
+                            context.push(AppRoutes.editProfile);
+                          },
                         ),
-                      ),
-                      onTap: () {},
-                    ),
-                    _buildMenuItem(
-                      icon: Icons.dark_mode_outlined,
-                      title: 'Dark Mode',
-                      trailing: Switch(
-                        value: false,
-                        onChanged: (value) {},
-                        activeColor: AppColors.primary,
-                      ),
-                      onTap: null,
-                    ),
-
-                    SizedBox(height: 32.h),
-
-                    // Logout Button
-                    SizedBox(
-                      width: double.infinity,
-                      child: OutlinedButton.icon(
-                        onPressed: () {
-                          _showLogoutDialog(context, authProvider);
-                        },
-                        icon: Icon(
-                          Icons.logout,
-                          color: AppColors.error,
-                          size: 20.w,
+                        _buildMenuItem(
+                          icon: Icons.location_on_outlined,
+                          title: 'My Addresses',
+                          onTap: () {
+                            context.push(AppRoutes.myAddresses);
+                          },
                         ),
-                        label: Text(
-                          'Logout',
-                          style: TextStyle(
-                            color: AppColors.error,
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w600,
+                        _buildMenuItem(
+                          icon: Icons.payment_outlined,
+                          title: 'Payment Methods',
+                          onTap: () {
+                            context.push(AppRoutes.paymentMethods);
+                          },
+                        ),
+
+                        SizedBox(height: 24.h),
+
+                        _buildSectionTitle('Support'),
+                        SizedBox(height: 12.h),
+                        _buildMenuItem(
+                          icon: Icons.help_outline,
+                          title: 'Help Center',
+                          onTap: () {
+                            context.push(AppRoutes.helpCenter);
+                          },
+                        ),
+                        _buildMenuItem(
+                          icon: Icons.chat_bubble_outline,
+                          title: 'Contact Us',
+                          onTap: () {
+                            context.push(AppRoutes.contactUs);
+                          },
+                        ),
+                        _buildMenuItem(
+                          icon: Icons.privacy_tip_outlined,
+                          title: 'Privacy Policy',
+                          onTap: () {
+                            context.push(AppRoutes.privacyPolicy);
+                          },
+                        ),
+
+                        SizedBox(height: 24.h),
+
+                        _buildSectionTitle('App'),
+                        SizedBox(height: 12.h),
+                        _buildMenuItem(
+                          icon: Icons.language,
+                          title: 'Language',
+                          trailing: Text(
+                            'English',
+                            style: TextStyle(
+                              color: AppColors.textSecondary,
+                              fontSize: 14.sp,
+                            ),
+                          ),
+                          onTap: () {
+                            context.push(AppRoutes.languageSelection);
+                          },
+                        ),
+                        _buildMenuItem(
+                          icon: Icons.dark_mode_outlined,
+                          title: 'Dark Mode',
+                          trailing: Switch(
+                            value: false,
+                            onChanged: (value) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    value
+                                        ? 'Dark Mode Enabled'
+                                        : 'Dark Mode Disabled',
+                                  ),
+                                  backgroundColor: AppColors.primary,
+                                ),
+                              );
+                            },
+                            activeColor: AppColors.primary,
+                          ),
+                          onTap: null,
+                        ),
+
+                        SizedBox(height: 32.h),
+
+                        // Logout Button
+                        SizedBox(
+                          width: double.infinity,
+                          child: OutlinedButton.icon(
+                            onPressed: () {
+                              _showLogoutDialog(context, authProvider);
+                            },
+                            icon: Icon(
+                              Icons.logout,
+                              color: AppColors.error,
+                              size: 20.w,
+                            ),
+                            label: Text(
+                              'Logout',
+                              style: TextStyle(
+                                color: AppColors.error,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            style: OutlinedButton.styleFrom(
+                              side: BorderSide(color: AppColors.error),
+                              padding: EdgeInsets.symmetric(vertical: 16.h),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12.r),
+                              ),
+                            ),
                           ),
                         ),
-                        style: OutlinedButton.styleFrom(
-                          side: BorderSide(color: AppColors.error),
-                          padding: EdgeInsets.symmetric(vertical: 16.h),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12.r),
+
+                        SizedBox(height: 24.h),
+
+                        // App Version
+                        Center(
+                          child: Text(
+                            'Version 1.0.0',
+                            style: TextStyle(
+                              fontSize: 12.sp,
+                              color: AppColors.textHint,
+                            ),
                           ),
                         ),
-                      ),
-                    ),
-
-                    SizedBox(height: 24.h),
-
-                    // App Version
-                    Center(
-                      child: Text(
-                        'Version 1.0.0',
-                        style: TextStyle(
-                          fontSize: 12.sp,
-                          color: AppColors.textHint,
-                        ),
-                      ),
-                    ),
 
                         SizedBox(height: 16.h),
                       ],

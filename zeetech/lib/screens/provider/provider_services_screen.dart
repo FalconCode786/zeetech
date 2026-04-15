@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import '../../core/constants/app_colors.dart';
 import '../../providers/provider_provider.dart';
+import '../../widgets/custom_app_bar.dart';
 
 class ProviderServicesScreen extends StatefulWidget {
   const ProviderServicesScreen({super.key});
@@ -26,11 +27,10 @@ class _ProviderServicesScreenState extends State<ProviderServicesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: AppBar(
-        title: Text(
-          'My Services',
-          style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
-        ),
+      appBar: CustomAppBar(
+        title: 'My Services',
+        showBackButton: true,
+        onBackPressed: () => context.pop(),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => _showAddServiceDialog(context),
@@ -317,24 +317,34 @@ class _ProviderServicesScreenState extends State<ProviderServicesScreen> {
                 return;
               }
 
-              final provider = context.read<ProviderProvider>();
-              final success = await provider.createService(
-                subcategoryName: nameController.text,
-                price: double.parse(priceController.text),
-                description: descriptionController.text.isEmpty
-                    ? null
-                    : descriptionController.text,
-              );
-
-              if (success) {
-                if (!context.mounted) return;
-                context.pop();
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Service added successfully')),
+              try {
+                final provider = context.read<ProviderProvider>();
+                final success = await provider.createService(
+                  subcategoryName: nameController.text,
+                  price: double.parse(priceController.text),
+                  description: descriptionController.text.isEmpty
+                      ? null
+                      : descriptionController.text,
                 );
-              } else {
+
+                if (success) {
+                  if (!context.mounted) return;
+                  context.pop();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Service added successfully')),
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Error: ${provider.errorMessage}')),
+                  );
+                }
+              } on FormatException {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Error: ${provider.errorMessage}')),
+                  const SnackBar(content: Text('Please enter a valid price')),
+                );
+              } catch (e) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('An error occurred: ${e.toString()}')),
                 );
               }
             },
@@ -428,24 +438,36 @@ class _ProviderServicesScreenState extends State<ProviderServicesScreen> {
                 return;
               }
 
-              final success = await provider.updateService(
-                serviceId: service.id,
-                subcategoryName: nameController.text,
-                price: double.parse(priceController.text),
-                description: descriptionController.text.isEmpty
-                    ? null
-                    : descriptionController.text,
-              );
-
-              if (success) {
-                if (!context.mounted) return;
-                context.pop();
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(content: Text('Service updated successfully')),
+              try {
+                final success = await provider.updateService(
+                  serviceId: service.id,
+                  subcategoryName: nameController.text,
+                  price: double.parse(priceController.text),
+                  description: descriptionController.text.isEmpty
+                      ? null
+                      : descriptionController.text,
                 );
-              } else {
+
+                if (success) {
+                  if (!context.mounted) return;
+                  context.pop();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Service updated successfully'),
+                    ),
+                  );
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('Error: ${provider.errorMessage}')),
+                  );
+                }
+              } on FormatException {
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Error: ${provider.errorMessage}')),
+                  const SnackBar(content: Text('Please enter a valid price')),
+                );
+              } catch (e) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('An error occurred: ${e.toString()}')),
                 );
               }
             },

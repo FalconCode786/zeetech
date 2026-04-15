@@ -2,7 +2,6 @@
 
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
-from bson.objectid import ObjectId
 from app.models.database import get_users_collection
 from app.utils.helpers import get_timestamp, is_valid_object_id
 from datetime import datetime
@@ -12,7 +11,7 @@ class User(UserMixin):
     """User model for authentication and profile management"""
 
     def __init__(self, email, phone, full_name, role='customer', password=None, **kwargs):
-        self._id = kwargs.get('_id')
+        self.id = kwargs.get('id') or kwargs.get('_id')
         self.email = email
         self.phone = phone
         self.full_name = full_name
@@ -45,7 +44,7 @@ class User(UserMixin):
 
     def get_id(self):
         """Get user ID for Flask-Login"""
-        return str(self._id)
+        return str(self.id)
 
     def set_password(self, password):
         """Hash and set password"""
@@ -58,7 +57,8 @@ class User(UserMixin):
     def to_dict(self, include_sensitive=False):
         """Convert user to dictionary"""
         data = {
-            '_id': str(self._id),
+            'id': str(self.id) if self.id else None,
+            '_id': str(self.id) if self.id else None, # Legacy compat
             'email': self.email,
             'phone': self.phone,
             'fullName': self.full_name,
@@ -84,12 +84,10 @@ class User(UserMixin):
     def save(self):
         """Save user to database"""
         users_collection = get_users_collection()
-        user_data = self.to_dict(include_sensitive=True)
-        user_data.pop('_id', None)
-        user_data['updated_at'] = get_timestamp()
+        self.updated_at = get_timestamp()
 
-        # Convert snake_case back to match MongoDB if needed
-        mongo_data = {
+        # Data formatted for Supabase table
+        supabase_data = {
             'email': self.email,
             'phone': self.phone,
             'fullName': self.full_name,
@@ -104,21 +102,23 @@ class User(UserMixin):
             'emailVerified': self.email_verified,
             'phoneVerified': self.phone_verified,
             'passwordHash': self.password_hash,
-            'createdAt': self.created_at,
-            'updatedAt': get_timestamp(),
+            'updatedAt': self.updated_at.isoformat() if isinstance(self.updated_at, datetime) else self.updated_at,
         }
 
-        if self._id:
-            result = users_collection.update_one(
-                {'_id': self._id},
-                {'$set': mongo_data}
-            )
-            return result.modified_count > 0
-        else:
-            mongo_data['createdAt'] = get_timestamp()
-            result = users_collection.insert_one(mongo_data)
-            self._id = result.inserted_id
-            return True
+        try:
+            if self.id:
+                result = users_collection.update(supabase_data).eq('id', self.id).execute()
+                return len(result.data) > 0
+            else:
+                supabase_data['createdAt'] = self.created_at.isoformat() if isinstance(self.created_at, datetime) else self.created_at
+                result = users_collection.insert(supabase_data).execute()
+                if result.data:
+                    self.id = result.data[0]['id']
+                    return True
+                return False
+        except Exception as e:
+            print(f"Error saving user: {e}")
+            return False
 
     @classmethod
     def find_by_id(cls, user_id):
@@ -127,38 +127,41 @@ class User(UserMixin):
             return None
 
         users_collection = get_users_collection()
-        user_doc = users_collection.find_one({'_id': ObjectId(user_id)})
-
-        if not user_doc:
-            return None
-
-        return cls._from_doc(user_doc)
+        try:
+            response = users_collection.select('*').eq('id', user_id).execute()
+            if response.data:
+                return cls._from_doc(response.data[0])
+        except Exception as e:
+            print(f"Error finding user: {e}")
+        return None
 
     @classmethod
     def find_by_email(cls, email):
         """Find user by email"""
         users_collection = get_users_collection()
-        user_doc = users_collection.find_one({'email': email})
-
-        if not user_doc:
-            return None
-
-        return cls._from_doc(user_doc)
+        try:
+            response = users_collection.select('*').eq('email', email).execute()
+            if response.data:
+                return cls._from_doc(response.data[0])
+        except Exception:
+            pass
+        return None
 
     @classmethod
     def find_by_phone(cls, phone):
         """Find user by phone"""
         users_collection = get_users_collection()
-        user_doc = users_collection.find_one({'phone': phone})
-
-        if not user_doc:
-            return None
-
-        return cls._from_doc(user_doc)
+        try:
+            response = users_collection.select('*').eq('phone', phone).execute()
+            if response.data:
+                return cls._from_doc(response.data[0])
+        except Exception:
+            pass
+        return None
 
     @classmethod
     def _from_doc(cls, doc):
-        """Create User instance from MongoDB document"""
+        """Create User instance from Supabase record"""
         if not doc:
             return None
 
@@ -167,7 +170,7 @@ class User(UserMixin):
             phone=doc.get('phone'),
             full_name=doc.get('fullName'),
             role=doc.get('role', 'customer'),
-            _id=doc.get('_id'),
+            id=doc.get('id'),
             status=doc.get('status', 'active'),
             password_hash=doc.get('passwordHash'),
             profile_image=doc.get('profileImage'),
@@ -185,7 +188,6 @@ class User(UserMixin):
     @classmethod
     def create(cls, email, phone, full_name, password, role='customer'):
         """Create and save a new user"""
-        # Check if user already exists
         if cls.find_by_email(email):
             return None, 'Email already registered'
 

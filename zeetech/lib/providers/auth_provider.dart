@@ -8,22 +8,19 @@ class AuthProvider extends ChangeNotifier {
   final StorageService _storageService = StorageService();
 
   UserModel? _user;
-  String? _token;
   bool _isLoading = false;
   String? _error;
 
   UserModel? get user => _user;
-  String? get token => _token;
   bool get isLoading => _isLoading;
   String? get error => _error;
-  bool get isAuthenticated => _token != null && _user != null;
+  bool get isAuthenticated => _user != null;
 
   AuthProvider() {
     _loadUserFromStorage();
   }
 
   Future<void> _loadUserFromStorage() async {
-    _token = await _storageService.getToken();
     final userData = await _storageService.getUser();
     if (userData != null) {
       _user = UserModel.fromJson(userData);
@@ -71,17 +68,11 @@ class AuthProvider extends ChangeNotifier {
 
       print('[AuthProvider] Register response: $response');
 
-      // Backend returns token, user data
-      _token = response['token'] ?? 'dummy_session_token';
-
-      final userData = response['data'] != null
-          ? response['data']['user']
-          : response['user'];
+      // Backend returns: { data: { user } }
+      final userData = response['data']?['user'];
 
       if (userData != null) {
         _user = UserModel.fromJson(userData);
-
-        await _storageService.setToken(_token!);
         await _storageService.setUser(_user!.toJson());
 
         _setLoading(false);
@@ -115,20 +106,14 @@ class AuthProvider extends ChangeNotifier {
 
       print('[AuthProvider] Login response: $response');
 
-      // Backend returns token (not access_token), user data
-      _token = response['token'] ?? 'dummy_session_token';
-
-      final userData = response['data'] != null
-          ? response['data']['user']
-          : response['user'];
+      // Backend returns: { data: { user } }
+      final userData = response['data']?['user'];
+      if (userData == null) {
+        throw Exception('No user data in response');
+      }
       _user = UserModel.fromJson(userData);
 
-      await _storageService.setToken(_token!);
       await _storageService.setUser(_user!.toJson());
-      // Store refresh token if provided
-      if (response['refresh_token'] != null) {
-        await _storageService.setRefreshToken(response['refresh_token']);
-      }
 
       _setLoading(false);
       notifyListeners();
@@ -217,7 +202,6 @@ class AuthProvider extends ChangeNotifier {
   }
 
   Future<void> logout() async {
-    _token = null;
     _user = null;
     await _storageService.clearAll();
     notifyListeners();
@@ -228,7 +212,7 @@ class AuthProvider extends ChangeNotifier {
       _setLoading(true);
       _setError(null);
 
-      final updatedUser = await _authService.updateProfile(_token!, data);
+      final updatedUser = await _authService.updateProfile(data);
       _user = updatedUser;
       await _storageService.setUser(_user!.toJson());
 

@@ -63,27 +63,29 @@ class BookingService:
     @staticmethod
     def _search_subcategory(name):
         """Search for a subcategory across all categories"""
-        from app.models.database import get_categories_collection
+        from app.models.database import supabase_client
 
-        categories_collection = get_categories_collection()
-        pipeline = [
-            {
-                '$project': {
-                    '_id': 1,
-                    'subcategories': {
-                        '$filter': {
-                            'input': '$subcategories',
-                            'as': 'sub',
-                            'cond': {'$eq': ['$$sub.name', name]}
-                        }
-                    }
-                }
-            },
-            {'$match': {'subcategories': {'$ne': []}}}
-        ]
+        try:
+            # Get all service categories and filter by subcategory name
+            response = supabase_client.table(
+                'serviceCategories').select('*').execute()
 
-        results = list(categories_collection.aggregate(pipeline))
-        return results, len(results)
+            results = []
+            if response.data:
+                for category in response.data:
+                    subcategories = category.get('subcategories', [])
+                    filtered_subs = [
+                        s for s in subcategories if s.get('name') == name]
+                    if filtered_subs:
+                        results.append({
+                            'id': category.get('id'),
+                            'subcategories': filtered_subs
+                        })
+
+            return results, len(results)
+        except Exception as e:
+            print(f"Error searching subcategory: {e}")
+            return [], 0
 
     @staticmethod
     def get_booking(booking_id):

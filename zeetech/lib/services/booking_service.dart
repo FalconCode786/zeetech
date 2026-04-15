@@ -16,7 +16,7 @@ class BookingService {
     String? specialInstructions,
   }) async {
     final response = await _apiService.post(
-      '/bookings/',
+      'bookings',
       data: {
         'subcategory_id': subcategoryId,
         'address': address,
@@ -29,7 +29,7 @@ class BookingService {
         'special_instructions': specialInstructions,
       },
     );
-    return BookingModel.fromJson(response.data);
+    return BookingModel.fromJson(response.data as Map<String, dynamic>);
   }
 
   Future<List<BookingModel>> getMyBookings({
@@ -38,24 +38,24 @@ class BookingService {
     int perPage = 10,
   }) async {
     final response = await _apiService.get(
-      '/bookings/my-bookings',
+      'bookings',
       queryParameters: {
         if (status != null) 'status': status,
         'page': page,
         'per_page': perPage,
       },
     );
-    final List<dynamic> data = response.data;
+    final List<dynamic> data = response.data!;
     return data.map((json) => BookingModel.fromJson(json)).toList();
   }
 
   Future<BookingModel> getBookingDetail(int bookingId) async {
-    final response = await _apiService.get('/bookings/$bookingId');
-    return BookingModel.fromJson(response.data);
+    final response = await _apiService.get('bookings/$bookingId');
+    return BookingModel.fromJson(response.data!);
   }
 
   Future<BookingModel> cancelBooking(int bookingId) async {
-    final response = await _apiService.put('/bookings/$bookingId/cancel');
-    return BookingModel.fromJson(response.data);
+    final response = await _apiService.get('bookings/$bookingId/cancel');
+    return BookingModel.fromJson(response.data!);
   }
 }

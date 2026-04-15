@@ -1,7 +1,7 @@
 from flask import Flask, request
 from flask_cors import CORS
 from flask_login import LoginManager
-from pymongo import MongoClient
+from supabase import create_client
 from app.config import get_config
 import os
 import logging
@@ -9,14 +9,13 @@ from logging.handlers import RotatingFileHandler
 
 
 # Global variables for database and extensions
-db = None
-mongo_client = None
+supabase_client = None
 login_manager = None
 
 
 def create_app(config=None):
     """Application factory function"""
-    global db, mongo_client, login_manager
+    global supabase_client, login_manager
 
     app = Flask(__name__)
 
@@ -30,19 +29,51 @@ def create_app(config=None):
     setup_logging(app)
 
     # Initialize CORS properly for Flutter frontend (mobile and web)
-    CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
+    # Allow requests from localhost (web) and all origins for mobile
+    CORS(app,
+         supports_credentials=True,
+         origins=['*'],
+         allow_headers=['Content-Type', 'Authorization'],
+         methods=['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
+         max_age=3600)
 
-    # Initialize MongoDB
-    mongo_client = MongoClient(app.config['MONGODB_URI'])
-    db = mongo_client[app.config['MONGODB_DB_NAME']]
+    # Handle CORS preflight requests (OPTIONS) - must run before other middleware
+    @app.before_request
+    def handle_preflight():
+        """Handle CORS preflight requests"""
+        if request.method == 'OPTIONS':
+            response = app.make_default_options_response()
+            response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization'
+            response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE, OPTIONS, PATCH'
+            response.headers['Access-Control-Allow-Origin'] = request.headers.get(
+                'Origin', '*')
+            response.headers['Access-Control-Allow-Credentials'] = 'true'
+            return response, 200
 
-    # Test MongoDB connection
+    # Initialize Supabase
     try:
-        mongo_client.admin.command('ping')
-        app.logger.info('MongoDB connection successful')
+        supabase_url = app.config.get('SUPABASE_URL')
+        supabase_key = app.config.get('SUPABASE_KEY')
+
+        if not supabase_url or not supabase_key:
+            app.logger.warning(
+                'SUPABASE_URL or SUPABASE_KEY not set. Running without database connection.')
+        else:
+            supabase_client = create_client(supabase_url, supabase_key)
+            # Test connection by querying users table
+            try:
+                supabase_client.table('users').select('*').limit(1).execute()
+                app.logger.info('Supabase connection successful')
+            except Exception as table_error:
+                # Tables may not exist yet - warn but don't fail
+                if 'PGRST205' in str(table_error) or 'Could not find the table' in str(table_error):
+                    app.logger.warning(
+                        'Supabase tables not initialized. Run SUPABASE_MIGRATIONS.sql first.')
+                else:
+                    app.logger.warning(
+                        f'Supabase test query failed: {table_error}')
     except Exception as e:
-        app.logger.error(f'MongoDB connection failed: {e}')
-        raise
+        app.logger.error(f'Supabase connection failed: {e}')
 
     # Initialize Flask-Login
     login_manager = LoginManager()
@@ -53,6 +84,18 @@ def create_app(config=None):
     def load_user(user_id):
         from app.models.user import User
         return User.find_by_id(user_id)
+
+    @login_manager.unauthorized_handler
+    def unauthorized_handler():
+        """Return JSON error for API requests instead of redirecting"""
+        if request.path.startswith('/api/'):
+            return {
+                'error': 'Authentication required',
+                'code': 'UNAUTHORIZED'
+            }, 401
+        # For non-API requests, redirect to login
+        from flask import redirect, url_for
+        return redirect(url_for('auth.login', next=request.url))
 
     # Create uploads folder
     os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
@@ -116,18 +159,18 @@ def setup_logging(app):
 
 
 def get_db():
-    """Get the MongoDB database instance"""
-    global db
-    if db is None:
+    """Get the Supabase client instance"""
+    global supabase_client
+    if supabase_client is None:
         raise RuntimeError(
             'Database not initialized. Call create_app() first.')
-    return db
+    return supabase_client
 
 
-def get_mongo_client():
-    """Get the MongoDB client instance"""
-    global mongo_client
-    if mongo_client is None:
+def get_supabase_client():
+    """Get the Supabase client instance"""
+    global supabase_client
+    if supabase_client is None:
         raise RuntimeError(
-            'MongoDB client not initialized. Call create_app() first.')
-    return mongo_client
+            'Supabase client not initialized. Call create_app() first.')
+    return supabase_client

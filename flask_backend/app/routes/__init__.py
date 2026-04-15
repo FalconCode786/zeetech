@@ -25,9 +25,17 @@ def register_blueprints(app):
     from app.routes.bookings import bookings_bp
     app.register_blueprint(bookings_bp)
 
+    # Phase 6: Provider routes
+    from app.routes.provider import provider_bp
+    app.register_blueprint(provider_bp)
+
     # Phase 6: Rating routes
     from app.routes.ratings import ratings_bp
     app.register_blueprint(ratings_bp)
+
+    # Phase 7: Feedback routes (required before payment)
+    from app.routes.feedbacks import feedbacks_bp
+    app.register_blueprint(feedbacks_bp)
 
     # Phase 7: Payment routes
     from app.routes.payments import payments_bp
@@ -40,7 +48,3 @@ def register_blueprints(app):
     # Phase 7: Upload routes
     from app.routes.uploads import uploads_bp
     app.register_blueprint(uploads_bp)
-
-    # Phase 8: Provider management routes
-    from app.routes.provider import provider_bp
-    app.register_blueprint(provider_bp)

@@ -1,12 +1,33 @@
 """Authentication routes"""
 
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, session, current_app
 from flask_login import login_user, logout_user, current_user
 from app.services.auth_service import AuthService
 from app.utils.errors import AppError
 from app.utils.helpers import serialize_document, format_response
+import jwt
+import os
+from datetime import datetime, timedelta
 
 auth_bp = Blueprint('auth', __name__, url_prefix='/api/auth')
+
+
+def _generate_token(user_id, user_role):
+    """Generate JWT token for a user"""
+    try:
+        secret_key = current_app.config.get(
+            'SECRET_KEY', os.environ.get('SECRET_KEY', 'your-secret-key'))
+        payload = {
+            'user_id': str(user_id),
+            'role': user_role,
+            'iat': datetime.utcnow(),
+            'exp': datetime.utcnow() + timedelta(days=30)
+        }
+        token = jwt.encode(payload, secret_key, algorithm='HS256')
+        return token
+    except Exception as e:
+        print(f'[JWT] Token generation failed: {e}')
+        return None
 
 
 @auth_bp.route('/register', methods=['POST'])
@@ -27,13 +48,17 @@ def register():
         # Register user
         user = AuthService.register(email, phone, full_name, password, role)
 
-        # Log user in
+        # Log user in with session
         login_user(user)
+
+        # Generate JWT token for web clients
+        token = _generate_token(user._id, user.role)
 
         return {
             'message': 'User registered successfully',
             'data': {
-                'user': serialize_document(user.to_dict())
+                'user': serialize_document(user.to_dict()),
+                'token': token
             }
         }, 201
 
@@ -61,13 +86,17 @@ def login():
         # Authenticate user
         user = AuthService.login(email_or_phone, password)
 
-        # Create session
+        # Create session (for mobile clients with cookies)
         login_user(user, remember=data.get('rememberMe', False))
+
+        # Generate JWT token for web clients
+        token = _generate_token(user._id, user.role)
 
         return {
             'message': 'Login successful',
             'data': {
-                'user': serialize_document(user.to_dict())
+                'user': serialize_document(user.to_dict()),
+                'token': token
             }
         }, 200
 

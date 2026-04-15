@@ -8,6 +8,7 @@ import '../../providers/auth_provider.dart';
 import '../../widgets/custom_text_field.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/loading_overlay.dart';
+import '../../widgets/custom_app_bar.dart';
 
 class EditProfileScreen extends StatefulWidget {
   const EditProfileScreen({super.key});
@@ -70,13 +71,10 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
       isLoading: authProvider.isLoading,
       child: Scaffold(
         backgroundColor: AppColors.background,
-        appBar: AppBar(
-          title: Text(
-            'Edit Profile',
-            style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
-          ),
-          centerTitle: true,
-          elevation: 0,
+        appBar: CustomAppBar(
+          title: 'Edit Profile',
+          showBackButton: true,
+          onBackPressed: () => context.pop(),
         ),
         body: SafeArea(
           child: SingleChildScrollView(

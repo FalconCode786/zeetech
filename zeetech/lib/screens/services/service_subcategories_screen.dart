@@ -8,6 +8,7 @@ import '../../core/routes/app_router.dart';
 import '../../providers/service_provider.dart';
 import '../../widgets/service_subcategory_card.dart';
 import '../../widgets/shimmer_loading.dart';
+import '../../widgets/custom_app_bar.dart';
 
 class ServiceSubcategoriesScreen extends StatefulWidget {
   final int categoryId;
@@ -20,10 +21,12 @@ class ServiceSubcategoriesScreen extends StatefulWidget {
   });
 
   @override
-  State<ServiceSubcategoriesScreen> createState() => _ServiceSubcategoriesScreenState();
+  State<ServiceSubcategoriesScreen> createState() =>
+      _ServiceSubcategoriesScreenState();
 }
 
-class _ServiceSubcategoriesScreenState extends State<ServiceSubcategoriesScreen> {
+class _ServiceSubcategoriesScreenState
+    extends State<ServiceSubcategoriesScreen> {
   @override
   void initState() {
     super.initState();
@@ -38,16 +41,10 @@ class _ServiceSubcategoriesScreenState extends State<ServiceSubcategoriesScreen>
 
     return Scaffold(
       backgroundColor: AppColors.background,
-      appBar: AppBar(
-        title: Text(
-          widget.categoryName,
-          style: TextStyle(
-            fontSize: 20.sp,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-        centerTitle: true,
-        elevation: 0,
+      appBar: CustomAppBar(
+        title: widget.categoryName,
+        showBackButton: true,
+        onBackPressed: () => context.pop(),
       ),
       body: SafeArea(
         child: Padding(
@@ -66,18 +63,11 @@ class _ServiceSubcategoriesScreenState extends State<ServiceSubcategoriesScreen>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.construction,
-              size: 64.w,
-              color: AppColors.textHint,
-            ),
+            Icon(Icons.construction, size: 64.w, color: AppColors.textHint),
             SizedBox(height: 16.h),
             Text(
               'No services available',
-              style: TextStyle(
-                fontSize: 18.sp,
-                color: AppColors.textSecondary,
-              ),
+              style: TextStyle(fontSize: 18.sp, color: AppColors.textSecondary),
             ),
           ],
         ),
@@ -89,18 +79,18 @@ class _ServiceSubcategoriesScreenState extends State<ServiceSubcategoriesScreen>
       itemBuilder: (context, index) {
         final subcategory = serviceProvider.subcategories[index];
         return ServiceSubcategoryCard(
-          subcategory: subcategory,
-          onTap: () {
-            context.push(
-              AppRoutes.booking,
-              extra: {
-                'subcategoryId': subcategory.id,
-                'subcategoryName': subcategory.name,
-                'basePrice': subcategory.basePrice,
+              subcategory: subcategory,
+              onTap: () {
+                context.push(
+                  AppRoutes.booking,
+                  extra: {
+                    'subcategoryId': subcategory.id,
+                    'subcategoryName': subcategory.name,
+                    'basePrice': subcategory.basePrice,
+                  },
+                );
               },
-            );
-          },
-        )
+            )
             .animate()
             .fadeIn(delay: Duration(milliseconds: index * 100))
             .slideX(begin: 0.3, end: 0);

@@ -1,6 +1,5 @@
 """Service category and subcategory models"""
 
-from bson.objectid import ObjectId
 from app.models.database import get_categories_collection
 from app.utils.helpers import get_timestamp, is_valid_object_id
 from datetime import datetime
@@ -53,7 +52,7 @@ class ServiceCategory:
     """Service category model"""
 
     def __init__(self, name, icon=None, image=None, display_order=0, **kwargs):
-        self._id = kwargs.get('_id')
+        self.id = kwargs.get('id')
         self.name = name  # English name
         self.name_urdu = kwargs.get('name_urdu')  # Urdu name
         self.icon = icon
@@ -92,20 +91,20 @@ class ServiceCategory:
             'description': self.description,
             'descriptionUrdu': self.description_urdu,
             'subcategories': self.subcategories,
-            'createdAt': self.created_at.isoformat() if isinstance(self.created_at, datetime) else self.created_at,
-            'updatedAt': self.updated_at.isoformat() if isinstance(self.updated_at, datetime) else self.updated_at,
+            'createdAt': self.created_at,
+            'updatedAt': self.updated_at,
         }
 
-        if include_id and self._id:
-            data['_id'] = str(self._id)
+        if include_id and self.id:
+            data['id'] = self.id
 
         return data
 
     def save(self):
-        """Save category to database"""
-        categories_collection = get_categories_collection()
+        """Save category to database via Supabase"""
+        from app.models.database import supabase_client
 
-        mongo_data = {
+        data = {
             'name': self.name,
             'nameUrdu': self.name_urdu,
             'icon': self.icon,
@@ -114,68 +113,87 @@ class ServiceCategory:
             'description': self.description,
             'descriptionUrdu': self.description_urdu,
             'subcategories': self.subcategories,
-            'updatedAt': get_timestamp(),
         }
 
-        if self._id:
-            result = categories_collection.update_one(
-                {'_id': self._id},
-                {'$set': mongo_data}
-            )
-            return result.modified_count > 0
+        if self.id:
+            # Update existing category
+            response = supabase_client.table('serviceCategories').update(
+                data).eq('id', self.id).execute()
+            return response.data is not None
         else:
-            mongo_data['createdAt'] = get_timestamp()
-            result = categories_collection.insert_one(mongo_data)
-            self._id = result.inserted_id
-            return True
+            # Insert new category
+            data['createdAt'] = self.created_at
+            response = supabase_client.table(
+                'serviceCategories').insert(data).execute()
+            if response.data:
+                self.id = response.data[0]['id']
+                return True
+            return False
 
     @classmethod
     def find_by_id(cls, category_id):
         """Find category by ID"""
-        if not is_valid_object_id(category_id):
+        from app.models.database import supabase_client
+
+        try:
+            response = supabase_client.table('serviceCategories').select(
+                '*').eq('id', int(category_id)).execute()
+            if response.data and len(response.data) > 0:
+                doc = response.data[0]
+                return cls._from_doc(doc)
             return None
-
-        categories_collection = get_categories_collection()
-        doc = categories_collection.find_one({'_id': ObjectId(category_id)})
-
-        if not doc:
+        except Exception:
             return None
-
-        return cls._from_doc(doc)
 
     @classmethod
     def find_by_name(cls, name):
         """Find category by name"""
-        categories_collection = get_categories_collection()
-        doc = categories_collection.find_one({'name': name})
+        from app.models.database import supabase_client
 
-        if not doc:
+        try:
+            response = supabase_client.table('serviceCategories').select(
+                '*').eq('name', name).execute()
+            if response.data and len(response.data) > 0:
+                doc = response.data[0]
+                return cls._from_doc(doc)
             return None
-
-        return cls._from_doc(doc)
+        except Exception:
+            return None
 
     @classmethod
     def find_all(cls, skip=0, limit=10):
         """Find all categories with pagination"""
-        categories_collection = get_categories_collection()
-        cursor = categories_collection.find().sort(
-            'displayOrder', 1).skip(skip).limit(limit)
+        from app.models.database import supabase_client
 
-        categories = []
-        for doc in cursor:
-            categories.append(cls._from_doc(doc))
+        try:
+            start = skip
+            end = skip + limit - 1
+            response = supabase_client.table('serviceCategories').select(
+                '*').order('displayOrder', desc=False).range(start, end).execute()
 
-        return categories
+            categories = []
+            if response.data:
+                for doc in response.data:
+                    categories.append(cls._from_doc(doc))
+            return categories
+        except Exception:
+            return []
 
     @classmethod
     def count_all(cls):
         """Count total categories"""
-        categories_collection = get_categories_collection()
-        return categories_collection.count_documents({})
+        from app.models.database import supabase_client
+
+        try:
+            response = supabase_client.table('serviceCategories').select(
+                'id', count='exact').execute()
+            return response.count if response.count else 0
+        except Exception:
+            return 0
 
     @classmethod
     def _from_doc(cls, doc):
-        """Create CategoryService instance from MongoDB document"""
+        """Create CategoryService instance from Supabase record"""
         if not doc:
             return None
 
@@ -184,7 +202,7 @@ class ServiceCategory:
             icon=doc.get('icon'),
             image=doc.get('image'),
             display_order=doc.get('displayOrder', 0),
-            _id=doc.get('_id'),
+            id=doc.get('id'),
             name_urdu=doc.get('nameUrdu'),
             description=doc.get('description'),
             description_urdu=doc.get('descriptionUrdu'),
@@ -196,18 +214,20 @@ class ServiceCategory:
     @classmethod
     def search(cls, query, skip=0, limit=10):
         """Search categories by name"""
-        categories_collection = get_categories_collection()
-        search_filter = {
-            '$or': [
-                {'name': {'$regex': query, '$options': 'i'}},
-                {'nameUrdu': {'$regex': query, '$options': 'i'}},
-            ]
-        }
-        cursor = categories_collection.find(
-            search_filter).skip(skip).limit(limit)
+        from app.models.database import supabase_client
 
-        categories = []
-        for doc in cursor:
-            categories.append(cls._from_doc(doc))
+        try:
+            start = skip
+            end = skip + limit - 1
+            # Note: Supabase doesn't support complex full-text search in the same way
+            # We'll do a simple filter on name field
+            response = supabase_client.table('serviceCategories').select(
+                '*').ilike('name', f'%{query}%').range(start, end).execute()
 
-        return categories
+            categories = []
+            if response.data:
+                for doc in response.data:
+                    categories.append(cls._from_doc(doc))
+            return categories
+        except Exception:
+            return []
