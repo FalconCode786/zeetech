@@ -1615,3 +1615,7 @@
 [2026-04-15 17:12:53,431] WARNING in __init__: Supabase tables not initialized. Run SUPABASE_MIGRATIONS.sql first.
 [2026-04-15 17:12:54,267] WARNING in __init__: Supabase tables not initialized. Run SUPABASE_MIGRATIONS.sql first.
 [2026-04-15 17:12:55,979] WARNING in __init__: Supabase test query failed: [WinError 10061] No connection could be made because the target machine actively refused it
+[2026-04-15 23:57:24,696] INFO in __init__: Logging configured for development environment
+[2026-04-15 23:57:27,958] INFO in __init__: Supabase connection successful
+[2026-04-15 23:57:39,912] INFO in __init__: Logging configured for development environment
+[2026-04-15 23:57:42,295] INFO in __init__: Supabase connection successful
