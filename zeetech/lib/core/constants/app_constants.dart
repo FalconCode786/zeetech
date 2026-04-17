@@ -5,11 +5,13 @@ class AppConstants {
   static const String appVersion = '1.0.0';
 
   // API Configuration
+  // BACKEND: Express.js on Node.js
   // For Android Emulator: use 10.0.2.2 (special alias for host machine)
-  // For Physical Device: use 192.168.18.69 (your machine's IP on network)
+  // For Physical Device: use 192.168.18.131 (your machine's IP on network)
   // For Web/Desktop: use localhost:5000
-  static const String baseUrl = ' http://192.168.100.4:5000/api';
-  static const int apiTimeout = 3000; // milliseconds
+  static const String baseUrl = 'http://localhost:5000';
+  static const int apiTimeout =
+      30000; // milliseconds (30 seconds for development database queries)
 
   // Storage Keys
   static const String tokenKey = 'auth_token';
@@ -34,7 +36,7 @@ class AppConstants {
   ];
 
   // Animation Durations
-  static const int splashDuration = 3000;
+  static const int splashDuration = 30;
   static const int animationDuration = 300;
   static const int pageTransitionDuration = 400;
 

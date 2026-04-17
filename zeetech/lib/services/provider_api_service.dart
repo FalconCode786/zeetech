@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 
 class ProviderApiService {
   final Dio _dio;
-  static const String _baseUrl = 'provider';
+  static const String _baseUrl = '/api/provider';
 
   ProviderApiService(this._dio);
 

@@ -16,7 +16,7 @@ class AuthService {
     String? address,
   }) async {
     final response = await _apiService.post(
-      'auth/register',
+      '/api/auth/register',
       data: {
         'fullName': fullName,
         'email': email,
@@ -38,7 +38,9 @@ class AuthService {
 
       // Also store refresh token if returned
       if (tokenData['refreshToken'] != null) {
-        await _storageService.setRefreshToken(tokenData['refreshToken'] as String);
+        await _storageService.setRefreshToken(
+          tokenData['refreshToken'] as String,
+        );
       }
     }
 
@@ -51,7 +53,7 @@ class AuthService {
     required String password,
   }) async {
     final response = await _apiService.post(
-      'auth/login',
+      '/api/auth/login',
       data: {'email': email, 'phone': phone, 'password': password},
     );
 
@@ -67,7 +69,9 @@ class AuthService {
 
       // Also store refresh token if returned
       if (tokenData['refreshToken'] != null) {
-        await _storageService.setRefreshToken(tokenData['refreshToken'] as String);
+        await _storageService.setRefreshToken(
+          tokenData['refreshToken'] as String,
+        );
       }
     }
 

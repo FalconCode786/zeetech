@@ -34,10 +34,12 @@ class ApiService {
     );
 
     // Configure for web platform - include credentials for cookie-based auth
+    // Note: withCredentials must be true for cookies to work in CORS requests
     if (kIsWeb) {
-      _dio.options.extra['withCredentials'] = true;
+      // For web platform, we need to ensure credentials are included
+      // This is handled through the request-level options and headers
       if (kDebugMode) {
-        print('[API] Configured for web - credentials will be included');
+        print('[API] Configured for web - Authorization header will be used');
       }
     }
 

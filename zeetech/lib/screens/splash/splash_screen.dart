@@ -85,30 +85,37 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   Future<void> _navigateToNext() async {
-    await Future.delayed(const Duration(milliseconds: 4000));
+    await Future.delayed(const Duration(milliseconds: 1));
 
     if (!mounted) return;
 
-    final storageService = StorageService();
-    await storageService.init();
+    try {
+      final storageService = StorageService();
+      await storageService.init();
 
-    final onboardingSeen = await storageService.getOnboardingSeen();
-    final userData = await storageService.getUser();
+      final onboardingSeen = await storageService.getOnboardingSeen();
+      final userData = await storageService.getUser();
 
-    if (!mounted) return;
+      if (!mounted) return;
 
-    if (userData != null) {
-      // User is logged in, check their role
-      final role = userData['role'] ?? 'customer';
-      if (role == 'provider') {
-        context.go(AppRoutes.providerDashboard);
+      if (userData != null) {
+        // User is logged in, check their role
+        final role = userData['role'] ?? 'customer';
+        if (role == 'provider') {
+          context.go(AppRoutes.providerDashboard);
+        } else {
+          context.go(AppRoutes.main);
+        }
+      } else if (onboardingSeen) {
+        context.go(AppRoutes.login);
       } else {
-        context.go(AppRoutes.home);
+        context.go(AppRoutes.onboarding);
       }
-    } else if (onboardingSeen) {
+    } catch (e) {
+      if (!mounted) return;
+      debugPrint('Splash navigation error: $e');
+      // Fallback to login screen
       context.go(AppRoutes.login);
-    } else {
-      context.go(AppRoutes.onboarding);
     }
   }
 
